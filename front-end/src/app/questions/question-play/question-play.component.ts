@@ -17,15 +17,12 @@ export class QuestionPlayComponent implements OnInit {
   question: Question;
 
   public questionPlayForm: FormGroup;
+  public isGoodAnswerChecked: boolean;
 
   constructor(public formBuilder: FormBuilder) {
-    this.initializeQuestionPlayForm(0, false);
-  }
-
-  private initializeQuestionPlayForm(index: number, isGoodAnswer: boolean): void {
+    this.isGoodAnswerChecked = null;
     this.questionPlayForm = this.formBuilder.group({
-      indexAnswer: index,
-      isGoodAnswer,
+      indexAnswer: 0,
     });
   }
 
@@ -37,11 +34,12 @@ export class QuestionPlayComponent implements OnInit {
   }
 
   getIsCorrect(): boolean{
-    return this.question[this.getIndexAnswer()].isCorrect;
+    console.log('isGoodAnswerChecked : ' + this.question.answers[this.getIndexAnswer()].isCorrect);
+    return this.question.answers[this.getIndexAnswer()].isCorrect;
   }
 
   validateQuestion(): void {
-    this.initializeQuestionPlayForm(this.getIndexAnswer(), this.getIsCorrect());
+    this.isGoodAnswerChecked = this.getIsCorrect();
   }
 
 
