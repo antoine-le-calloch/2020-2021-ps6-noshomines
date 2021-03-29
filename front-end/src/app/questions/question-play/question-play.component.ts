@@ -16,21 +16,32 @@ export class QuestionPlayComponent implements OnInit {
   @Input()
   question: Question;
 
-  public questionPlay: FormGroup;
+  public questionPlayForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder) {
-    this.questionPlay = this.formBuilder.group({
-      indexAnswer: 0,
+    this.initializeQuestionPlayForm(0, false);
+  }
+
+  private initializeQuestionPlayForm(index: number, isGoodAnswer: boolean): void {
+    this.questionPlayForm = this.formBuilder.group({
+      indexAnswer: index,
+      isGoodAnswer,
     });
   }
 
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
-  validateQuestion() {
+  getIndexAnswer(): number{
+    return this.questionPlayForm.get('indexAnswer').value;
+  }
 
-    // value -> antoine, if (answer.value = antoine).isCorrect == true)
+  getIsCorrect(): boolean{
+    return this.question[this.getIndexAnswer()].isCorrect;
+  }
+
+  validateQuestion(): void {
+    this.initializeQuestionPlayForm(this.getIndexAnswer(), this.getIsCorrect());
   }
 
 

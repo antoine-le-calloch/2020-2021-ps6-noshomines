@@ -1,5 +1,5 @@
 <div class="card">
-  <form class="question-play" [formGroup]="questionPlay">
+  <form class="question-play" [formGroup]="questionPlayForm">
   <h2>
     <i class="fab fa-leanpub"></i>
     {{question.label}}
@@ -13,4 +13,4 @@
 </div>
 
 
-<br><br>{{questionPlay.getRawValue() | json}}
+<br><br>{{questionPlayForm.getRawValue() | json}}
