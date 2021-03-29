@@ -16,7 +16,14 @@ export class QuestionPlayComponent implements OnInit {
   @Input()
   question: Question;
 
-  constructor() { }
+  public questionPlay: FormGroup;
+
+  constructor(public formBuilder: FormBuilder) {
+    this.questionPlay = this.formBuilder.group({
+      isGoodAnswer: [false],
+      indexAnswer: [0]
+    });
+  }
 
   ngOnInit(): void {
   }
