@@ -20,8 +20,7 @@ export class QuestionPlayComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder) {
     this.questionPlay = this.formBuilder.group({
-      isGoodAnswer: [false],
-      indexAnswer: [0]
+      indexAnswer: 0,
     });
   }
 
@@ -30,7 +29,6 @@ export class QuestionPlayComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   validateQuestion() {
-
 
     // value -> antoine, if (answer.value = antoine).isCorrect == true)
   }

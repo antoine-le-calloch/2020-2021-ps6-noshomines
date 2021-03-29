@@ -6,8 +6,11 @@
   </h2>
   <div class="answer" *ngFor="let answer of question.answers; let i=index">
     {{i}} - {{answer.value}} <label for="answer {{i}}"></label>
-    <input type="radio" name="answer "id="answer {{i}}" [formControlName]="answer.value">
+    <input type="radio" name="answer" id="answer {{i}}" value="{{i}}" formControlName="indexAnswer">
   </div>
   <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
   </form>
 </div>
+
+
+<br><br>{{questionPlay.getRawValue() | json}}
