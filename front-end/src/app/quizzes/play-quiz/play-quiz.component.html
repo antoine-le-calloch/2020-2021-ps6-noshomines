@@ -2,7 +2,10 @@
   <h1>{{quiz.name}}</h1>
 </div>
 
-<div *ngIf="quiz && quiz.questions != null">
+<div *ngIf="quiz && indexQuestion < quiz.questions.length; then thenBlock2 else elseBlock2"></div>
+
+
+  <ng-template #thenBlock2>
   <div *ngIf="printDisplay==false; then thenBlock else elseBlock"></div>
 
     <ng-template #thenBlock>
@@ -14,8 +17,13 @@
     </ng-template>
 
     <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
+    </ng-template>
 
-</div>
+
+    <ng-template #elseBlock2>
+      <button type="submit" class="button-card" (click)="restartQuiz()">Recommencez le quiz</button>
+    </ng-template>
+
 
 <button class="button-card" routerLink="/quiz-list">Retour</button>
 

@@ -40,6 +40,11 @@ export class PlayQuizComponent implements OnInit {
     else {
       this.printDisplay = true;
     }
+    console.log('index de la question : ' + this.indexQuestion);
+  }
+
+  restartQuiz(): void {
+    this.indexQuestion = 0;
   }
 
 }
