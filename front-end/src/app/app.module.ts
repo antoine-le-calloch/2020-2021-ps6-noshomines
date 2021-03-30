@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
+import {DisplayComponent} from './display/display.component';
 import { AppRoutingModule } from './app.routing.module';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
@@ -32,6 +33,7 @@ import { UserListComponent } from './users/user-list/user-list.component';
     QuestionFormComponent,
     QuestionPlayComponent,
     QuestionComponent,
+    DisplayComponent,
     UserComponent,
     UserFormComponent,
     UserListComponent,

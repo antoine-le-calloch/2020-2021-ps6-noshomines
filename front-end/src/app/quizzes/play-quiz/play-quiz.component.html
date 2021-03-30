@@ -4,7 +4,7 @@
 
 <div *ngIf="quiz && quiz.questions != null">
   <app-question-play [question]="quiz.questions[indexQuestion]" (isGoodAnswerChecked)="answerSelected($event)"></app-question-play>
-  <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
+  <button type="submit" class="button-card" routerLink="/display" [isCorrect]="isCorrect" (click)="validateQuestion()">Valider</button>
 </div>
 
 <h1>{{isCorrect}}</h1>
