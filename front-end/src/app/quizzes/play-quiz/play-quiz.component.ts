@@ -14,6 +14,7 @@ export class PlayQuizComponent implements OnInit {
   public isCorrect: boolean;
   public printDisplay: boolean;
   public indexQuestion: number;
+  public indexAnswer: number;
   public score: number;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
@@ -28,8 +29,14 @@ export class PlayQuizComponent implements OnInit {
   }
 
 
-  answerSelected(isGoodAnswerChecked: boolean): void {
-    this.isCorrect = isGoodAnswerChecked;
+  answerSelected(indexAnswer: number): void {
+    this.indexAnswer = indexAnswer;
+    this.isCorrect = this.getIsCorrect();
+  }
+
+  getIsCorrect(): boolean{
+    console.log('isGoodAnswerChecked : ' + this.quiz.questions[this.indexQuestion].answers[this.indexAnswer].isCorrect);
+    return this.quiz.questions[this.indexQuestion].answers[this.indexAnswer].isCorrect;
   }
 
   validateQuestion(): void {

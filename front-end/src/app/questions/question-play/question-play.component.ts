@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Answer, Question} from '../../../models/question.model';
-import {Quiz} from "../../../models/quiz.model";
 
 @Component({
   selector: 'app-question-play',
@@ -17,7 +16,7 @@ export class QuestionPlayComponent implements OnInit {
   question: Question;
 
   @Output()
-  isGoodAnswerChecked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  indexAnswerChecked: EventEmitter<number> = new EventEmitter<number>();
 
   public questionPlayForm: FormGroup;
 
@@ -30,15 +29,10 @@ export class QuestionPlayComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getIsCorrect(index: number): boolean{
-    console.log('isGoodAnswerChecked : ' + this.question.answers[index].isCorrect);
-    return this.question.answers[index].isCorrect;
-  }
 
-  onSelect(answer: Answer, index: number): void {
+  onSelect(answer: Answer, indexAnswer: number): void {
     this.selectedAnswer = answer;
-    this.isGoodAnswerChecked.emit(this.getIsCorrect(index));
-
+    this.indexAnswerChecked.emit(indexAnswer);
   }
 
 
