@@ -3,11 +3,20 @@
 </div>
 
 <div *ngIf="quiz && quiz.questions != null">
-  <app-question-play [question]="quiz.questions[indexQuestion]" (isGoodAnswerChecked)="answerSelected($event)"></app-question-play>
-  <button type="submit" class="button-card" routerLink="/display" [isCorrect]="isCorrect" (click)="validateQuestion()">Valider</button>
+  <div *ngIf="printDisplay==false; then thenBlock else elseBlock"></div>
+
+    <ng-template #thenBlock>
+      <app-question-play [question]="quiz.questions[indexQuestion]" (isGoodAnswerChecked)="answerSelected($event)"></app-question-play>
+    </ng-template>
+
+    <ng-template #elseBlock>
+      <app-display [isCorrect]="isCorrect"></app-display>
+    </ng-template>
+
+    <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
+
 </div>
 
-<h1>{{isCorrect}}</h1>
-
-
 <button class="button-card" routerLink="/quiz-list">Retour</button>
+
+

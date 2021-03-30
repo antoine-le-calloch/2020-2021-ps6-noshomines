@@ -11,7 +11,6 @@ const routes: Routes = [
     {path: 'quiz-list', component: QuizListComponent},
     {path: 'play-quiz/:id', component: PlayQuizComponent},
     {path: 'edit-quiz/:id', component: EditQuizComponent},
-    {path: 'display', component: DisplayComponent},
     { path: '', redirectTo: '/quiz-list', pathMatch: 'full' },
 ];
 

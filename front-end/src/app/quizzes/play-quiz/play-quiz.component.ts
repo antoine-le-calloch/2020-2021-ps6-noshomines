@@ -12,11 +12,13 @@ export class PlayQuizComponent implements OnInit {
 
   public quiz: Quiz;
   public isCorrect: boolean;
+  public printDisplay: boolean;
   public indexQuestion: number;
   public score: number;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.indexQuestion = 0;
+    this.printDisplay = false;
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
 
@@ -31,8 +33,12 @@ export class PlayQuizComponent implements OnInit {
   }
 
   validateQuestion(): void {
-    if (this.isCorrect){
-
+    if (this.printDisplay){
+      this.indexQuestion++;
+      this.printDisplay = false;
+    }
+    else {
+      this.printDisplay = true;
     }
   }
 
