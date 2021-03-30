@@ -1,19 +1,18 @@
 @import '../../../styles/card.scss';
 
-.answer-form {
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
+
+.answer:hover {
+  color: #ff6425;
+  text-decoration:none;
 }
 
-
-a {
-  color: #1c641c;
+.answer:active{
+  color: #ff6425;
   font-weight: bold;
+  text-decoration:none;
 }
 
-b {
-  color: #cb1616;
-  font-weight: bold;
-}
+
+
 
 
