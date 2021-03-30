@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Quiz} from '../../../models/quiz.model';
 import {QuizService} from '../../../services/quiz.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-play-quiz',
@@ -12,14 +11,29 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class PlayQuizComponent implements OnInit {
 
   public quiz: Quiz;
+  public isCorrect: boolean;
+  public indexQuestion: number;
+  public score: number;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
+    this.indexQuestion = 0;
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
+  }
+
+
+  answerSelected(isGoodAnswerChecked: boolean): void {
+    this.isCorrect = isGoodAnswerChecked;
+  }
+
+  validateQuestion(): void {
+    if (this.isCorrect){
+
+    }
   }
 
 }

@@ -3,10 +3,11 @@
 </div>
 
 <div *ngIf="quiz && quiz.questions != null">
-  <div class="play-quiz" *ngFor="let question of quiz.questions; let i=index">
-    <app-question-play [question]="quiz.questions[i]"></app-question-play>
-  </div>
+  <app-question-play [question]="quiz.questions[indexQuestion]" (isGoodAnswerChecked)="answerSelected($event)"></app-question-play>
+  <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
 </div>
+
+<h1>{{isCorrect}}</h1>
 
 
 <button class="button-card" routerLink="/quiz-list">Retour</button>

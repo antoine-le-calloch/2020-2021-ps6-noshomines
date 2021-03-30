@@ -1,20 +1,17 @@
 <div class="card">
-  <form class="question-play" [formGroup]="questionPlayForm">
+
   <h2>
     <i class="fab fa-leanpub"></i>
     {{question.label}}
   </h2>
-  <div class="answer" *ngFor="let answer of question.answers; let i=index">
-    {{answer.value}} <label for="answer {{i}}"></label>
-    <input type="radio" id="answer {{i}}" value="{{i}}" formControlName="indexAnswer">
-  </div>
-  <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
-  </form>
 
-
-  <div *ngIf="isGoodAnswerChecked == true; then thenBlock else elseBlock"></div>
-  <ng-template #thenBlock><a>{{isGoodAnswerChecked}}</a></ng-template>
-  <ng-template #elseBlock><b>{{isGoodAnswerChecked}}</b></ng-template>
+  <ul class="answer">
+    <li *ngFor="let answer of question.answers; let i=index"
+        [class.selected]="answer === selectedAnswer"
+        (click)="onSelect(answer, i)">
+        {{answer.value}}
+    </li>
+  </ul>
 
 </div>
 
