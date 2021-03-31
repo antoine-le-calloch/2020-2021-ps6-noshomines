@@ -19,13 +19,14 @@
 
     <ng-template #elseBlock>
       <app-question-play [question]="quiz.questions[indexQuestion]"></app-question-play>
-      <app-display [isCorrect]="isCorrect" [question]="quiz.questions[indexQuestion]" ></app-display>
-      <button type="submit" class="button-card" (click)="validateQuestion()">Prochaine question</button>
+      <app-answer-display [isCorrect]="isCorrect" [question]="quiz.questions[indexQuestion]" ></app-answer-display>
+      <button type="submit" class="button-card" (click)="nextQuestion()">Prochaine question</button>
     </ng-template>
 
     </ng-template>
 
     <ng-template #elseBlock2>
+      <app-resume-display [quiz]="quiz" [score]="score"></app-resume-display>
       <button type="submit" class="button-card" (click)="restartQuiz()">Recommencez le quiz</button>
     </ng-template>
 

@@ -1,0 +1,9 @@
+<div *ngIf="quiz">
+  <div *ngFor="let question of quiz.questions; let i=index">
+    <h1> Question : {{question.label}} | Reponse : {{findAnswer(i)}}</h1>
+  </div>
+
+  <h1>Votre score est de {{score}}/{{quiz.questions.length}}</h1>
+</div>
+
+

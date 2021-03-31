@@ -19,6 +19,7 @@ export class PlayQuizComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.indexQuestion = 0;
+    this.score = 0;
     this.printDisplay = false;
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
@@ -40,17 +41,21 @@ export class PlayQuizComponent implements OnInit {
   }
 
   validateQuestion(): void {
-    if (this.printDisplay){
-      this.indexQuestion++;
-      this.printDisplay = false;
+    this.printDisplay = true;
+    if (this.getIsCorrect()) {
+      this.score++;
     }
-    else {
-      this.printDisplay = true;
-    }
+    console.log('score : ' + this.score);
     console.log('index de la question : ' + this.indexQuestion);
   }
 
+  nextQuestion(): void {
+    this.indexQuestion++;
+    this.printDisplay = false;
+  }
+
   restartQuiz(): void {
+    this.score = 0;
     this.indexQuestion = 0;
   }
 
