@@ -52,6 +52,7 @@ export class PlayQuizComponent implements OnInit {
   nextQuestion(): void {
     this.indexQuestion++;
     this.printDisplay = false;
+    this.indexAnswer = null;
   }
 
   restartQuiz(): void {

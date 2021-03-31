@@ -14,7 +14,16 @@
 
     <ng-template #thenBlock>
       <app-question-play [question]="quiz.questions[indexQuestion]" (indexAnswerChecked)="answerSelected($event)"></app-question-play>
-      <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
+
+      <div *ngIf="indexAnswer==null; then uselessButton else usefullButton"></div>
+      <ng-template #uselessButton>
+        <button type="submit" class="button-card">Valider</button>
+      </ng-template>
+
+      <ng-template #usefullButton>
+        <button type="submit" class="button-card" (click)="validateQuestion()">Valider</button>
+      </ng-template>
+
     </ng-template>
 
     <ng-template #elseBlock>
