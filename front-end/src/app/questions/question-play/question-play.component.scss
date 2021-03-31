@@ -1,12 +1,19 @@
 @import '../../../styles/card.scss';
 
 
-.answer:hover {
-  color: #ff6425;
+.answer{
+  color: #000000;
+  font-weight: bold;
   text-decoration:none;
 }
 
-.answer:active{
+.answer:hover {
+  cursor: pointer;
+  color: #fc9e5b;
+  text-decoration:none;
+}
+
+.selected{
   color: #ff6425;
   font-weight: bold;
   text-decoration:none;

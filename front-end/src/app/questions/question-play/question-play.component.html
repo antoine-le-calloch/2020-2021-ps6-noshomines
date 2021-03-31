@@ -6,7 +6,7 @@
   </h2>
 
   <ul class="answers">
-    <li class ="answer"  *ngFor="let answer of question.answers; let i=index"
+    <li class ="answer" id="answer-selected" *ngFor="let answer of question.answers; let i=index"
         [class.selected]="answer === selectedAnswer"
         (click)="onSelect(answer, i)">
         {{answer.value}}
