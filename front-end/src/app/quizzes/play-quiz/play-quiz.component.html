@@ -2,7 +2,9 @@
 
 <div *ngIf="quiz && quiz.name != null">
   <h1>{{quiz.name}}</h1>
-  <h1>question n°{{indexQuestion + 1}}/{{quiz.questions.length}}</h1>
+  <div *ngIf="quiz && indexQuestion < quiz.questions.length">
+    <h1>question n°{{indexQuestion + 1}}/{{quiz.questions.length}}</h1>
+  </div>
 </div>
 
 <div *ngIf="quiz && indexQuestion < quiz.questions.length; then thenBlock2 else elseBlock2"></div>
