@@ -28,7 +28,7 @@ export class DisplayComponent implements OnInit {
 
   findAnswer(): string {
     for (let i = 0; i < this.question.answers.length; i++) {
-      if (this.question.answers[i]){
+      if (this.question.answers[i].isCorrect){
         return this.question.answers[i].value;
       }
     }
