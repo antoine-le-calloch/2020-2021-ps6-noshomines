@@ -3,9 +3,6 @@
 h2{
   text-align: center;
   color: #ffffff;
-  font-family: "Aperçu", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.015em;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
@@ -24,11 +21,9 @@ h2{
 
 
 .answer{
+  list-style: none;
   text-align: center;
   color: #ffffff;
-  font-family: "Aperçu", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.015em;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
@@ -36,15 +31,12 @@ h2{
 
 .answer:hover {
   cursor: pointer;
-  color: #fc9e5b;
+  color: #9ecf94;
   text-decoration:none;
 }
 
 .selected{
-  color: #ff6425;
-  font-family: "Aperçu", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.015em;
+  color: #70ba60;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
