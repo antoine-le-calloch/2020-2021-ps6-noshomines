@@ -20,6 +20,7 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {AnswerDisplayComponent} from './display/answer/answer-display.component';
 import {ResumeDisplayComponent} from './display/resume/resume-display.component';
+import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {ResumeDisplayComponent} from './display/resume/resume-display.component'
     QuizFormComponent,
     EditQuizComponent,
     PlayQuizComponent,
+    OptionQuizComponent,
     QuestionListComponent,
     QuestionFormComponent,
     QuestionPlayComponent,
