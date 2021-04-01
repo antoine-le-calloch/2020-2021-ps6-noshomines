@@ -1,6 +1,15 @@
 @import '../../../styles/card.scss';
 
 .answer-form {
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+.card{
+  text-align: center;
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

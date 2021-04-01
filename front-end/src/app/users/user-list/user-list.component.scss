@@ -1,4 +1,9 @@
 .user-list {
-    display: flex;
-  }
-  
+  display: inline-flex;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}

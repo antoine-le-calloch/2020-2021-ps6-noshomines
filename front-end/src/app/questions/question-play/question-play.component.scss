@@ -1,10 +1,37 @@
 @import '../../../styles/card.scss';
 
+h2{
+  text-align: center;
+  color: #ffffff;
+  font-family: "Aperçu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  font-size: 2.5vw;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.card{
+  background: #050400;
+  border-radius: 1px;
+  display: block;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  position: relative;
+  box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
+  padding: 0 1em 1em 1em;
+}
+
 
 .answer{
-  color: #000000;
-  font-weight: bold;
-  text-decoration:none;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Aperçu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  font-size: 2.5vw;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .answer:hover {
@@ -15,8 +42,12 @@
 
 .selected{
   color: #ff6425;
-  font-weight: bold;
-  text-decoration:none;
+  font-family: "Aperçu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  font-size: 2.5vw;
+  font-weight: 500;
+  line-height: 1;
 }
 
 

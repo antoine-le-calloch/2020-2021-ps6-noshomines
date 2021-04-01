@@ -1,3 +1,31 @@
 @import '../../../styles/card.scss';
 
+h1{
+  text-align: center;
+  font-family: "Aperçu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.015em;
+  font-size: 2.5vw;
+  font-weight: bold;
+  line-height: 1;
+}
+
+app-resume-display{
+  text-align: center;
+}
+
+.rectangle{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.button-card{
+  background-color: #000000;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 1em;
+}
+
+
 

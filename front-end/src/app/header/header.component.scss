@@ -9,13 +9,30 @@
 }
 
 .header {
-  background: #45535C;
-  padding: 0.5em;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-}
+  .name{
+    position: center;
+    line-height: 1;
+    text-align: center;
+    font-size: 4vw;
+  }
+  ul{
+    list-style-type: none;
+    display: inline-block;
+  }
 
-.navigation {
-  font-size: 0.7em;
-  padding-left: 0.5em;
-  color: white;
+  li{
+    display: inline;
+  }
+
+  li a{
+    color: #fffcfc;
+    padding-left: 2vw;
+    padding-right: 3vw;
+    text-decoration: none;
+  }
+
+  display: block;
+  background: #080211;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  justify-content: space-between;
 }

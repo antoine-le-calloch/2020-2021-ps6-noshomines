@@ -3,3 +3,38 @@
 .edit {
     margin-left: 0.3em;
 }
+
+.card{
+  text-align: center;
+  width: 400px;
+  margin: auto;
+}
+
+.button-card-play{
+  cursor:pointer;
+  background-color: #000000;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 1em;
+}
+
+.button-card-edit{
+  cursor:pointer;
+  background-color: #000000;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  margin-left: 2rem;
+}
+
+.button-card-delete{
+  cursor:pointer;
+  background-color: #000000;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  margin-left: 2rem;
+}
