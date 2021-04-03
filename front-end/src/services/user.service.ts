@@ -51,4 +51,8 @@ export class UserService {
     const urlWithId = this.userUrl + '/' + user.id;
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
+
+  setRestartQuestion(user: User,condition: boolean): void{
+    this.http.post<User>()
+  }
 }

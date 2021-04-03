@@ -26,4 +26,9 @@ export class OptionQuizComponent implements OnInit {
     console.log('restartQuestion : ' + this.restartQuestion);
   }
 
+  validate(): void {
+
+
+  }
+
 }
