@@ -2,15 +2,16 @@
     <h2>Créer un nouvel utilisateur </h2>
     <form class="user-form" [formGroup]="userForm">
       <label for="firstName">
-        Prénom <br>
-        <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'">
+        <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'" placeholder=" Prénom">
       </label>
       <br>
       <label for="lastName">
-        Nom <br>
-        <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'">
+        <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'" placeholder=" Nom">
       </label>
       <br>
       <button type="submit" class="button-card" (click)="addUser()">Créer</button>
     </form>
-  </div>
+</div>
+<div class="title">
+  <h1>Nom de l'EPHAD </h1>
+</div>

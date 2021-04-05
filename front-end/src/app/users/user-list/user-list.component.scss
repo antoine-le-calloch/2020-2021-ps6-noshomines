@@ -1,9 +1,12 @@
 .user-list {
-  display: inline-flex;
-  text-align: center;
-  width: 200px;
   position: absolute;
-  top: 80%;
-  left: 10%;
+  top: 45%;
+  left: 50%;
+  right: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 1200px;
+  height: 100px;
   transform: translate(-50%, -50%);
 }

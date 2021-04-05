@@ -1,22 +1,31 @@
 @import '../../../styles/card.scss';
 
-
-
 .card{
   text-align: center;
+  h2{
+    color: $greenForTxt;
+  }
+  input{
+    background-color: $blue;
+    border: 2px solid #000;
+  }
   width: 500px;
   position: absolute;
-  top: 40%;
+  top: 16%;
   left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
+  background-color: $app-background-color;
+  .button-card{
+    cursor:pointer;
+    background-color: $greenForButton;
+    border: 2px solid #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
 }
-
-.button-card{
-  cursor:pointer;
-  background-color: #000000;
-  border: solid 1px #000000;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5em 1em;
+.title{
+  color: $greenForTxt;
 }
-
