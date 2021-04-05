@@ -10,7 +10,9 @@
     <li class ="answer" id="answer-selected" *ngFor="let answer of question.answers; let i=index"
         [class.selected]="answer === selectedAnswer"
         (click)="onSelect(answer, i)">
+      <div *ngIf="!listIndexAnswerFalse.includes(i)">
         {{answer.value}}
+      </div>
     </li>
   </ul>
 

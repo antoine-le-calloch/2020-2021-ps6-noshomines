@@ -7,13 +7,13 @@
   </div>
 </div>
 
-<div class="rectangle" *ngIf="quiz && indexQuestion < quiz.questions.length; then thenBlock2 else elseBlock2"></div>
+<div class="rectangle" *ngIf="quiz && indexQuestion < quiz.questions.length; then questionsBlock else noQuestionsBlock"></div>
 
-  <ng-template #thenBlock2>
-  <div *ngIf="printDisplay==false; then thenBlock else elseBlock"></div>
+  <ng-template #questionsBlock>
+  <div *ngIf="printDisplay==false; then playBlock else displayBlock"></div>
 
-    <ng-template #thenBlock>
-      <app-question-play [question]="quiz.questions[indexQuestion]" (indexAnswerChecked)="answerSelected($event)"></app-question-play>
+    <ng-template #playBlock>
+      <app-question-play [listIndexAnswerFalse]="listIndexAnswerFalse" [question]="quiz.questions[indexQuestion]" (indexAnswerChecked)="answerSelected($event)"></app-question-play>
 
       <div *ngIf="indexAnswer==null; then uselessButton else usefullButton"></div>
       <ng-template #uselessButton>
@@ -26,15 +26,15 @@
 
     </ng-template>
 
-    <ng-template #elseBlock>
-      <app-question-play [question]="quiz.questions[indexQuestion]"></app-question-play>
+    <ng-template #displayBlock>
+      <app-question-play [listIndexAnswerFalse]="listIndexAnswerFalse" [question]="quiz.questions[indexQuestion]"></app-question-play>
       <app-answer-display [isCorrect]="isCorrect" [question]="quiz.questions[indexQuestion]" ></app-answer-display>
       <button type="submit" class="button-card" (click)="nextQuestion()">Prochaine question</button>
     </ng-template>
 
     </ng-template>
 
-    <ng-template #elseBlock2>
+    <ng-template #noQuestionsBlock>
       <app-resume-display [quiz]="quiz" [score]="score"></app-resume-display>
       <button type="submit" class="button-card" (click)="restartQuiz()">Recommencez le quiz</button>
     </ng-template>

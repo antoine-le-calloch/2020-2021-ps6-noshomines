@@ -15,6 +15,9 @@ export class QuestionPlayComponent implements OnInit {
   @Input()
   question: Question;
 
+  @Input()
+  listIndexAnswerFalse: Array<number>;
+
   @Output()
   indexAnswerChecked: EventEmitter<number> = new EventEmitter<number>();
 
