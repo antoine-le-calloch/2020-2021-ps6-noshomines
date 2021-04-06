@@ -2,14 +2,16 @@
 
 h2{
   text-align: center;
-  color: #ffffff;
+  color: $greenForTxt;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
 }
 
+
+
 .card{
-  background: #050400;
+  background: $app-background-color;
   border-radius: 1px;
   display: block;
   margin-right: 5rem;
@@ -23,7 +25,7 @@ h2{
 .answer{
   list-style: none;
   text-align: center;
-  color: #ffffff;
+  color: $greenForTxt;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
@@ -31,12 +33,12 @@ h2{
 
 .answer:hover {
   cursor: pointer;
-  color: #9ecf94;
+  color: $cursorOnQuestion;
   text-decoration:none;
 }
 
 .selected{
-  color: #70ba60;
+  color: $questionSelected;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
