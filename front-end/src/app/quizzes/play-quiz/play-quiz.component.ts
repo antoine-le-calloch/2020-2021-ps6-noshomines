@@ -9,12 +9,12 @@ import {QuizService} from '../../../services/quiz.service';
   styleUrls: ['./play-quiz.component.scss']
 })
 export class PlayQuizComponent implements OnInit {
-
   public quiz: Quiz;
   public isCorrect: boolean;
   public printDisplay: boolean;
-  public restartQuestion: boolean;
+  public restartQuestionOption: boolean;
   public indexQuestion: number;
+  public displayScoreOption: boolean;
   public indexAnswer: number;
   public listIndexAnswerFalse: Array<number>;
   public score: number;
@@ -22,8 +22,9 @@ export class PlayQuizComponent implements OnInit {
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.indexQuestion = 0;
     this.score = 0;
+    this.displayScoreOption = true;
     this.printDisplay = false;
-    this.restartQuestion = true;
+    this.restartQuestionOption = true;
     this.listIndexAnswerFalse = [];
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
@@ -45,7 +46,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   validateQuestion(): void {
-    if (!this.restartQuestion) {
+    if (!this.restartQuestionOption) {
       this.printDisplay = true;
       if (this.getIsCorrect()) {
         this.score++;

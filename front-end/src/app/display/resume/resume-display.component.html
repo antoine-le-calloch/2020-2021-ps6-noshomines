@@ -3,8 +3,11 @@
     <h1> Question {{i+1}}: {{question.label}} </h1>
     <h3> Réponse : {{findAnswer(i)}}</h3>
   </div>
+<div *ngIf="displayScoreOption">
 
-  <h2>Votre score est de {{score}}/{{quiz.questions.length}}</h2>
+  <h2>  Votre score est de {{score}}/{{quiz.questions.length}}</h2>
+</div>
+
 </div>
 
 
