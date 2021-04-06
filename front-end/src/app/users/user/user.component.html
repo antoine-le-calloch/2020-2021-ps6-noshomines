@@ -1,10 +1,7 @@
-<div class="user-card">
-  <div class="card">
-    <i class="fas fa-user fa-4x"></i>
-    <button class="button-card-use" routerLink="/quiz-list/{{user.id}}">Utiliser</button>
-    <button class="button-card-del" (click)="delete()">Supprimer</button>
-  </div>
-  <div class="txt">
-    {{user.firstName}} {{user.lastName}}
-  </div>
+<div class="card">>
+    <h1 class="fas fa-times" (click)="delete()"></h1>
+    <i class="fas fa-user-circle fa-4x" routerLink="/quiz-list/{{user.id}}"></i>
+    <div class="txt">
+      {{user.firstName}} <!--{{user.lastName}}-->
+    </div>
 </div>

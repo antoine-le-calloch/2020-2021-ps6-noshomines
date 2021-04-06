@@ -1,45 +1,22 @@
 @import '../../../styles/card.scss';
 
-.user-card {
-  width: 200px;
-  height: 220px;
-  .card {
-    width: 140px;
-    height: 140px;
-    .fa-4x{
-      position: relative;
-      top: 11%;
-      left: 25%;
-    }
-    .button-card-use {
-      cursor: pointer;
-      background-color: $greenForButton;
-      border: solid 1px #000000;
-      color: #ffffff;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
-      position: relative;
-      top: 25%;
-      right: 13%;
-    }
-    .button-card-del {
-      cursor: pointer;
-      background-color: $redForButton;
-      border: solid 1px #000000;
-      color: #ffffff;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
-      position: relative;
-      top: 1%;
-      left: 43%;
-    }
+.card {
+  width: 80px;
+  height: 80px;
+  .fa-times {
+    position: relative;
+    bottom: 59%;
+    right: 65%;
+  }
+  .fa-4x{
+    position: relative;
+    bottom: 105%;
+    left: 2%;
   }
   .txt {
-    color: $greenForTxt;
+    color: $txtColor;
     position: relative;
-    bottom: 10%;
-    left: 20px;
+    bottom: 95%;
+    right: 23%;
   }
 }

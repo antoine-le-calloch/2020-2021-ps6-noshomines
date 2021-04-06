@@ -1,4 +1,5 @@
 <div class="card">
+  <i class="fas fa-user-circle fa-7x"></i>
     <h2>Créer un nouvel utilisateur </h2>
     <form class="user-form" [formGroup]="userForm">
       <label for="firstName">
@@ -9,9 +10,19 @@
         <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'" placeholder=" Nom">
       </label>
       <br>
-      <button type="submit" class="button-card" (click)="addUser()">Créer</button>
+      <label for="birthday">
+        <input class="input-custom" type="text" id="birthday" [formControlName]="'birthday'" placeholder=" Date de naissance">
+      </label>
+      <br>
+      <label for="comment">
+        <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
+      </label>
+      <br>
+      <label for="pathology">
+        <input class="input-custom" type="text" id="pathology" [formControlName]="'pathology'" placeholder=" Pathologie">
+      </label>
+      <br>
+      <button type="submit" class="submit-card" (click)="addUser()" routerLink="/user-list">Valider</button>
+      <button type="cancel" class="cancel-card" routerLink="/user-list">Annuler</button>
     </form>
-</div>
-<div class="title">
-  <h1>Nom de l'EPHAD </h1>
 </div>

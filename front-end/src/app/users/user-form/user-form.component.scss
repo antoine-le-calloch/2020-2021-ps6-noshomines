@@ -2,21 +2,29 @@
 
 .card{
   text-align: center;
+  background-color: white;
+  .fa-user-circle{
+    color: black;
+    position: relative;
+    top: 2%;
+  }
   h2{
-    color: $greenForTxt;
+    color: $txtColor;
   }
   input{
-    background-color: $blue;
+    background-color: $colorForTxtInput;
     border: 2px solid #000;
+    width: 200px;
   }
   width: 500px;
+  height: 450px;
   position: absolute;
-  top: 16%;
+  top: 50%;
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
-  background-color: $app-background-color;
-  .button-card{
+  .submit-card{
+    margin: 10px;
     cursor:pointer;
     background-color: $greenForButton;
     border: 2px solid #000000;
@@ -25,7 +33,14 @@
     padding: 0.5em 1em;
     box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
   }
-}
-.title{
-  color: $greenForTxt;
+  .cancel-card{
+    margin: 10px;
+    cursor:pointer;
+    background-color: $redForButton;
+    border: 2px solid #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
 }
