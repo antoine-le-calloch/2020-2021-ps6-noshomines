@@ -16,6 +16,7 @@ export class PlayQuizComponent implements OnInit {
   public indexQuestion: number;
   public displayScoreOption: boolean;
   public indexAnswer: number;
+  public answerDisplayOption: boolean;
   public listIndexAnswerFalse: Array<number>;
   public score: number;
 
@@ -25,6 +26,7 @@ export class PlayQuizComponent implements OnInit {
     this.displayScoreOption = true;
     this.printDisplay = false;
     this.restartQuestionOption = true;
+    this.answerDisplayOption = true;
     this.listIndexAnswerFalse = [];
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }

@@ -1,10 +1,19 @@
 @import '../../../styles/card.scss';
 
 h1{
-  text-align: center;
   font-size: 2.5vw;
   font-weight: bold;
   line-height: 1;
+}
+
+.quiz-name{
+  text-align: center;
+  color: $greenForTxt;
+}
+
+.num-question{
+  color: $blue;
+  text-align: left;
 }
 
 app-resume-display{
