@@ -52,7 +52,4 @@ export class UserService {
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
-  /*setRestartQuestion(user: User,condition: boolean): void{
-    this.http.post<User>()
-  }*/
 }
