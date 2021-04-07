@@ -1,11 +1,7 @@
-
-<div class="user-card">
-  <div class="card">
-    <i class="fas fa-user fa-4x"></i>
-    <button class="button-card-use" (click)="selectUser()">Utiliser</button>
-    <button class="button-card-del" (click)="delete()">Supprimer</button>
-  </div>
+<div class="card">
+  <i class="fas fa-times" (click)="delete()"></i>
+  <i class="fas fa-user fa-4x" (click)="selectUser()"></i>
   <div class="txt">
-    {{user.firstName}} {{user.lastName}}
+    {{user.firstName}} <!--{{user.lastName}}-->
   </div>
 </div>

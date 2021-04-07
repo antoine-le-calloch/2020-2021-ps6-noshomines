@@ -1,4 +1,5 @@
 @import './styles/variables.scss';
+@import './styles/card.scss';
 
 /* You can add global styles to this file, and also import other style files */
 html {
@@ -6,6 +7,19 @@ html {
 }
 
 body {
-  margin: 0;
   background-color: $app-background-color;
+  h1{
+    font-size: medium;
+    position: absolute;
+    color: #ffdc62;
+    margin: 10px;
+    z-index:1;
+  }
+  .headband{
+    h2{
+      color: $white;
+      text-align: center;
+      font: 500 6vh/0vh Roboto, "DIN Alternate", sans-serif;
+    }
+  }
 }

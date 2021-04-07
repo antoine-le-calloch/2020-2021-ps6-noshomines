@@ -1,5 +1,12 @@
 @import "./variables";
 
+.headband {
+  width: 100vw;
+  height: 10vh;
+  display: inline-block;
+  background-color: $headbandColor;
+}
+
 .card {
   background: $white;
   border-radius: 2px;
