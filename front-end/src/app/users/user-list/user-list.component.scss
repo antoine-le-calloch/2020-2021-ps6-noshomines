@@ -1,12 +1,29 @@
+@import '../../../styles/card.scss';
+
+.card{
+  position: absolute;
+  top: -3%;
+  left: -3%;
+  width: 100vw;
+  text-align: center;
+  color: $txtColor;
+}
+
+.create-user-button{
+  position: absolute;
+  top: 30%;
+  background-color: $app-background-color;
+  .fa-4x{
+    color: $txtColor;
+  }
+}
+
 .user-list {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  right: 50%;
+  top: 30%;
+  left: 12%;
+  width: 80vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: 1200px;
-  height: 100px;
-  transform: translate(-50%, -50%);
 }
