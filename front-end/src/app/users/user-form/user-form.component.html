@@ -9,20 +9,27 @@
       <label for="lastName">
         <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'" placeholder=" Nom">
       </label>
-      <br>
+      <!--<br>
       <label for="birthday">
         <input class="input-custom" type="text" id="birthday" [formControlName]="'birthday'" placeholder=" Date de naissance">
       </label>
       <br>
       <label for="comment">
         <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
-      </label>
+      </label>-->
       <br>
-      <label for="pathology">
-        <input class="input-custom" type="text" id="pathology" [formControlName]="'pathology'" placeholder=" Pathologie">
-      </label>
+      <div class="pathology">
+        <label for="pathology">
+          <select name="pathology-list" id="pathology" [formControlName]="'pathology'">
+            <option value="">--Please choose an option--</option>
+            <option *ngFor="let currentPathology of PATHOLOGY_LIST" [value]="currentPathology">
+              {{ currentPathology }}
+            </option>
+          </select>
+        </label>
+      </div>
       <br>
       <button type="submit" class="submit-card" (click)="addUser()" routerLink="/user-list">Valider</button>
-      <button type="cancel" class="cancel-card" routerLink="/user-list">Annuler</button>
+      <button class="cancel-card" routerLink="/user-list">Annuler</button>
     </form>
 </div>
