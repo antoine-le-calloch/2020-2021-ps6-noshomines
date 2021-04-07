@@ -5,7 +5,7 @@ import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
-import {QuizComponent} from './quizzes/quiz/quiz.component';
+
 
 const routes: Routes = [
     {path: 'user-list', component: UserListComponent},

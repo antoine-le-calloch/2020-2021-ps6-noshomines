@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
+import {BehaviorSubject, ReplaySubject} from 'rxjs';
 import { User } from '../models/user.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
@@ -19,7 +19,7 @@ export class UserService {
   public users$: BehaviorSubject<User[]>
     = new BehaviorSubject([]);
 
-  public userSelected$: Subject<User> = new Subject();
+  public userSelected$: ReplaySubject<User> = new ReplaySubject();
 
   private userUrl = serverUrl + '/users';
 

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Quiz} from '../../../models/quiz.model';
 import {QuizService} from '../../../services/quiz.service';
+import {UserService} from '../../../services/user.service';
+import {User} from '../../../models/user.model';
 
 @Component({
   selector: 'app-play-quiz',
@@ -10,25 +12,25 @@ import {QuizService} from '../../../services/quiz.service';
 })
 export class PlayQuizComponent implements OnInit {
   public quiz: Quiz;
+  public user: User;
+
   public isCorrect: boolean;
   public printDisplay: boolean;
-  public restartQuestionOption: boolean;
   public indexQuestion: number;
-  public displayScoreOption: boolean;
   public indexAnswer: number;
-  public answerDisplayOption: boolean;
   public listIndexAnswerFalse: Array<number>;
   public score: number;
 
-  constructor(private route: ActivatedRoute, private quizService: QuizService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService, public userService: UserService) {
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+    this.userService.userSelected$.subscribe((user) => {
+      this.user = user;
+    });
+
     this.indexQuestion = 0;
     this.score = 0;
-    this.displayScoreOption = true;
     this.printDisplay = false;
-    this.restartQuestionOption = true;
-    this.answerDisplayOption = true;
     this.listIndexAnswerFalse = [];
-    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
   }
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class PlayQuizComponent implements OnInit {
 
 
   answerSelected(indexAnswer: number): void {
+    console.log('playquiz : restartQuestionOption : ' + this.user.restartQuestionOption);
     this.indexAnswer = indexAnswer;
     this.isCorrect = this.getIsCorrect();
   }
@@ -48,7 +51,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   validateQuestion(): void {
-    if (!this.restartQuestionOption) {
+    if (!this.user.restartQuestionOption) {
       this.printDisplay = true;
       if (this.getIsCorrect()) {
         this.score++;

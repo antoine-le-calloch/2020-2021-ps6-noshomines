@@ -2,5 +2,8 @@ export interface User {
     id: string;
     firstName: string;
     lastName: string;
-    restartQuestion: boolean;
+
+    restartQuestionOption: boolean;
+    displayScoreOption: boolean;
+    answerDisplayOption: boolean;
 }

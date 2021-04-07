@@ -37,10 +37,6 @@ export class AttemptService {
     });
   }
 
-  addAttempt(attempt: Attempt): void {
-    this.http.post<Attempt>(this.attemptUrl, attempt, this.httpOptions).subscribe(() => this.retrieveAttempts());
-  }
-
   setSelectedAttempt(attemptId: string): void {
     const urlWithId = this.attemptUrl + '/' + attemptId;
     this.http.get<Attempt>(urlWithId).subscribe((attempt) => {

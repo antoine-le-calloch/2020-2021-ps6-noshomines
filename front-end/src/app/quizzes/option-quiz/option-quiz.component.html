@@ -2,8 +2,19 @@
 <h1>OPTIONS</h1>
 
 <div>
-  <input type="checkbox" id="restartQuestion" name="restartQuestion" (click)="onSelect()">
-  <label for="restartQuestion">Répéter la question</label>
+  <div>
+    <input type="checkbox" id="restartQuestion" name="Option">
+    <label for="restartQuestion">Recommencer la question</label>
+  </div>
+  <div>
+    <input type="checkbox" id="answerDisplayOption" name="Option">
+    <label for="answerDisplayOption">Afficher la réponse</label>
+  </div>
+  <div>
+    <input type="checkbox" id="displayScoreOption" name="Option">
+    <label for="displayScoreOption">Afficher le résultat</label>
+  </div>
+
   <button class="button-card" (click)="validate()">Valider</button>
 
 </div>
