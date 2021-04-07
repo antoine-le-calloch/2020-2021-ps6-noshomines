@@ -21,9 +21,9 @@ export class OptionQuizComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private userService: UserService) {
     this.userService.userSelected$.subscribe((user) => {
       this.optionForm = this.formBuilder.group({
-        restartQuestion: this.user.restartQuestionOption,
-        answerDisplayOption: this.user.answerDisplayOption,
-        displayScoreOption: this.user.displayScoreOption,
+        restartQuestion: user.restartQuestionOption,
+        answerDisplayOption: user.answerDisplayOption,
+        displayScoreOption: user.displayScoreOption,
       });
     });
 
@@ -32,14 +32,7 @@ export class OptionQuizComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(): void {
-    this.restartQuestion = !this.restartQuestion;
-    console.log('restartQuestion : ' + this.restartQuestion);
-  }
-
   validate(): void {
-
-
   }
 
 }

@@ -41,6 +41,8 @@ export class PlayQuizComponent implements OnInit {
 
   answerSelected(indexAnswer: number): void {
     console.log('playquiz : restartQuestionOption : ' + this.user.restartQuestionOption);
+    console.log('playquiz : answerDisplayOption : ' + this.user.answerDisplayOption);
+    console.log('playquiz : displayScoreOption : ' + this.user.displayScoreOption);
     this.indexAnswer = indexAnswer;
     this.isCorrect = this.getIsCorrect();
   }
