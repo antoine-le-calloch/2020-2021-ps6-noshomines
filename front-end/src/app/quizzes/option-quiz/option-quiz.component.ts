@@ -49,8 +49,13 @@ export class OptionQuizComponent implements OnInit {
     const userToModify: User = this.userForm.getRawValue() as User;
     this.userService.modifyUser(userToModify);
     console.log(this.userForm.value);
+    this.sleep(100);
     this.userService.setSelectedUser(userToModify.id);
     this.router.navigate(['/quiz-list']);
+  }
+
+  sleep(ms): Promise<unknown> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   onSelectRestartQuestionOption(): void {
