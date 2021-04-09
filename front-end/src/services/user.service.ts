@@ -40,6 +40,11 @@ export class UserService {
     this.http.post<User>(this.userUrl, user, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
 
+  modifyUser(user: User): void {
+    const urlWithId = this.userUrl + '/' + user.id;
+    this.http.put<User>(urlWithId, user, this.httpOptions).subscribe(() => this.retrieveUsers());
+  }
+
   setSelectedUser(userId: string): void {
     const urlWithId = this.userUrl + '/' + userId;
     this.http.get<User>(urlWithId).subscribe((user) => {
@@ -51,5 +56,6 @@ export class UserService {
     const urlWithId = this.userUrl + '/' + user.id;
     this.http.delete<User>(urlWithId, this.httpOptions).subscribe(() => this.retrieveUsers());
   }
+
 
 }
