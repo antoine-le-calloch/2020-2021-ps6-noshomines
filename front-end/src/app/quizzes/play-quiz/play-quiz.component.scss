@@ -7,13 +7,15 @@ h1{
 }
 
 .quiz-name{
-  margin-left: 45vw;
+  text-align: center;
   color: $txtColor;
 }
 
 .num-question{
   color: $txtColor;
-  text-align: right;
+  text-align: center;
+  border-bottom: 2px dashed $txtColor;
+  padding-bottom: 2rem ;
 }
 
 app-resume-display{
@@ -30,14 +32,14 @@ app-quiz-list{
 }
 
 .button-card-validate{
-  margin-left: 46vw;
+  margin-left: 45%;
+  margin-top: 12.5%;
   background-color: $headbandColor;
   border: solid 1px $headbandColor;
   color: #ffffff;
-  height: 6vw;
   font-weight: bold;
   font-size: large;
-  padding: 0.5em 2.5em;
+  padding: 0.5em 3em;
 }
 
 .button-card-back{

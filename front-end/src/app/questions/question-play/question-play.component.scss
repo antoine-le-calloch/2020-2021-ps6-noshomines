@@ -19,27 +19,37 @@ h2{
   position: relative;
   box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
   padding: 0 1em 1em 1em;
-  margin-top: 10vh;
 }
 
+.answers{
+  position: absolute;
+  width: 84vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
 .answer{
-  list-style: none;
   text-align: center;
   color: $txtColor;
   font-size: 2.5vw;
   font-weight: 500;
-  line-height: 1;
+  margin-left: 20rem;
+  margin-top: 1rem;
+  background: #2297be;
+  border-radius: 20px;
+  border-color: $txtColor;
+  outline:0;
 }
 
 .answer:hover {
   cursor: pointer;
-  color: $cursorOnQuestion;
+  background: #ffb25b;
   text-decoration:none;
 }
 
 .selected{
-  color: $questionSelected;
+  background: darkorange;
   font-size: 2.5vw;
   font-weight: 500;
   line-height: 1;
