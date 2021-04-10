@@ -1,11 +1,12 @@
 @import '../../../styles/card.scss';
 
 .question-list {
-  display: inline-flex;
-  text-align: center;
-  width: 400px;
   position: absolute;
-  top: 80%;
-  left: 20%;
-  transform: translate(-50%, -50%);
+  top: 60vh;
+  left: 5vw;
+  width: 84vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  z-index: 0;
 }

@@ -4,6 +4,11 @@
   position: absolute;
   top: 20vh;
   left: 2vw;
+  cursor: pointer;
+  .create-user-text{
+    text-align: center;
+    font-size: small;
+  }
   background-color: $app-background-color;
   .fa-4x{
     color: $txtColor;

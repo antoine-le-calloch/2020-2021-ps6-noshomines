@@ -1,22 +1,37 @@
 @import '../../../styles/card.scss';
 
 .card {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 100px;
   .fa-times {
     position: relative;
-    bottom: 59%;
-    right: 65%;
+    color: #fcfcfc;
+    bottom: 100%;
+    right: 20%;
+    cursor: pointer;
   }
   .fa-4x{
     position: relative;
-    bottom: 105%;
+    bottom: 60%;
     left: 2%;
+    cursor: pointer;
   }
   .txt {
     color: $txtColor;
     position: relative;
-    bottom: 95%;
-    right: 23%;
+    bottom: 50%;
+    right: 10%;
+  }
+
+  .fa-4x:hover{
+    color: $txtColor;
+  }
+
+  #round{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: red;
+    text-align: center;
   }
 }
