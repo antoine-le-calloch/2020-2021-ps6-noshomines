@@ -19,40 +19,37 @@ h2{
   position: relative;
   box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
   padding: 0 1em 1em 1em;
-}
 
-.answers{
-  position: absolute;
-  width: 84vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
+  .answers{
+    position: relative;
+    width: 84vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
-.answer{
-  text-align: center;
-  color: $txtColor;
-  font-size: 2.5vw;
-  font-weight: 500;
-  margin-left: 20rem;
-  margin-top: 1rem;
-  background: #2297be;
-  border-radius: 20px;
-  border-color: $txtColor;
-  outline:0;
-}
+  .answer{
+    text-align: center;
+    color: white;
+    font-size: 2.5vw;
+    font-weight: 500;
+    margin-left: 13.5rem;
+    margin-top: 1rem;
+    background: $headbandColor;
+    border-radius: 20px;
+    border: 3.5px solid #000000;
+    outline:0;
+  }
 
-.answer:hover {
-  cursor: pointer;
-  background: #ffb25b;
-  text-decoration:none;
-}
+  .answer:hover {
+    cursor: pointer;
+    background: $cursorOnQuestion;
+    text-decoration:none;
+  }
 
-.selected{
-  background: darkorange;
-  font-size: 2.5vw;
-  font-weight: 500;
-  line-height: 1;
+  .selected{
+    background: darkorange;
+  }
 }
 
 

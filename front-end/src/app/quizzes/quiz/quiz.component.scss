@@ -11,29 +11,35 @@
 
 .button-card-play{
   cursor:pointer;
-  background-color: #000000;
+  background-color: $headbandColor;
   border: solid 1px #000000;
   color: #ffffff;
   font-weight: bold;
   padding: 0.5em 0.5em;
+  outline: 0;
+  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .button-card-edit{
   cursor:pointer;
-  background-color: #000000;
+  background-color: $headbandColor;
   border: solid 1px #000000;
   color: #ffffff;
   font-weight: bold;
   padding: 0.5em 0.5em;
   margin-left: 2rem;
+  outline: 0;
+  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
 }
 
 .button-card-delete{
   cursor:pointer;
-  background-color: #000000;
+  background-color: $headbandColor;
   border: solid 1px #000000;
   color: #ffffff;
   font-weight: bold;
   padding: 0.5em 0.5em;
   margin-left: 2rem;
+  outline: 0;
+  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
 }

@@ -21,7 +21,7 @@
       <div class="pathology">
         <label for="pathology">
           <select name="pathology-list" id="pathology" [formControlName]="'pathology'">
-            <option value="">--Please choose an option--</option>
+            <option value="">--Choisissez une des options--</option>
             <option *ngFor="let currentPathology of PATHOLOGY_LIST" [value]="currentPathology">
               {{ currentPathology }}
             </option>

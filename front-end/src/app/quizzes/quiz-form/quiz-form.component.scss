@@ -12,9 +12,10 @@
 
 .button-card{
   cursor:pointer;
-  background-color: #000000;
+  background-color: $headbandColor;
   border: solid 1px #000000;
   color: #ffffff;
   font-weight: bold;
   padding: 0.5em 1em;
+  outline: 0;
 }

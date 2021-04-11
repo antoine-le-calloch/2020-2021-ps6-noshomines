@@ -1,7 +1,9 @@
+@import "../../../styles/variables";
+
 .question{
   font-size: x-large;
   margin-top: 2vh;
-  background: #4257b2;
+  background: $headbandColor;
   color: #fffcfc;
 }
 
