@@ -45,8 +45,11 @@
 
 
     <ng-template #noQuestionsBlock>
+      <div class="end-quiz">
       <app-resume-display [displayScoreOption]="user.displayScoreOption" [quiz]="quiz" [score]="score"></app-resume-display>
-      <button type="submit" class="button-card" (click)="restartQuiz()">Recommencez le quiz</button>
+      <button type="submit" class="button-card-restart" (click)="restartQuiz()">Recommencez le quiz</button>
+      <button type="submit" class="button-card-other-quiz" (click)="restartQuiz()">Jouer à un autre quiz(pas fonctionnel)</button>
+      </div>
     </ng-template>
 
 
