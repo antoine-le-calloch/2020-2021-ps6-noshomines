@@ -1,0 +1,9 @@
+<button class="button-card-back" routerLink="/user-list">Retour</button>
+  <app-quiz-form ></app-quiz-form>
+
+
+<div class="quiz-list">
+  <div class="quiz" *ngFor="let quiz of quizList">
+    <app-quiz [quiz]="quiz"  [isAdmin]="true"  (quizSelected)="quizSelected($event)" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
+  </div>
+</div>

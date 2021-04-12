@@ -21,6 +21,7 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import {AnswerDisplayComponent} from './display/answer/answer-display.component';
 import {ResumeDisplayComponent} from './display/resume/resume-display.component';
 import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
+import {GestionQuizComponent} from './quizzes/gestion-quiz/gestion-quiz.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
     UserComponent,
     UserFormComponent,
     UserListComponent,
+    GestionQuizComponent
   ],
     imports: [
         BrowserModule,

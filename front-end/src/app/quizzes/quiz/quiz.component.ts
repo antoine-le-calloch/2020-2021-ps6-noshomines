@@ -9,6 +9,9 @@ import { Quiz } from '../../../models/quiz.model';
 export class QuizComponent implements OnInit {
 
   @Input()
+  isAdmin: boolean;
+
+  @Input()
   quiz: Quiz;
 
   @Output()
