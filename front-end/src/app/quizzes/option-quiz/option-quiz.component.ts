@@ -51,7 +51,7 @@ export class OptionQuizComponent implements OnInit {
     console.log(this.userForm.value);
     this.sleep(100);
     this.userService.setSelectedUser(userToModify.id);
-    this.router.navigate(['/quiz-list']);
+    this.router.navigate(['/user-list']);
   }
 
   sleep(ms): Promise<unknown> {

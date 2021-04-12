@@ -22,6 +22,7 @@ import {AnswerDisplayComponent} from './display/answer/answer-display.component'
 import {ResumeDisplayComponent} from './display/resume/resume-display.component';
 import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
 import {GestionQuizComponent} from './quizzes/gestion-quiz/gestion-quiz.component';
+import {MainpageHeaderComponent} from './header/mainpage-header/mainpage-header.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {GestionQuizComponent} from './quizzes/gestion-quiz/gestion-quiz.componen
     UserComponent,
     UserFormComponent,
     UserListComponent,
-    GestionQuizComponent
+    GestionQuizComponent,
+    MainpageHeaderComponent
   ],
     imports: [
         BrowserModule,

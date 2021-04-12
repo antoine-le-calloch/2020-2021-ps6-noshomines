@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../../../models/user.model';
+import {Router} from '@angular/router';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -18,7 +20,7 @@ export class UserComponent implements OnInit {
   @Output()
   userSelected: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor() {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class UserComponent implements OnInit {
 
   selectUser(): void {
     this.userSelected.emit(this.user);
+  }
+
+  modifyUser(user: User): void {
+    this.userService.setSelectedUser(user.id);
+    this.router.navigate(['/option-quiz']);
   }
 
 }
