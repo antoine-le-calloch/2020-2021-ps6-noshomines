@@ -1,41 +1,26 @@
 @import '../../../styles/card.scss';
 
 .create-user-button{
-  position: absolute;
-  top: 20vh;
+  position: relative;
+  width: fit-content;
+  top: 2vw;
   left: 2vw;
   cursor: pointer;
   .create-user-text{
+    position: relative;
     text-align: center;
     font-size: small;
   }
-  background-color: $app-background-color;
   .fa-4x{
     color: $txtColor;
   }
 }
 
 .user-list {
-  position: absolute;
-  top: 24.5vh;
+  position: relative;
   left: 15vw;
   width: 84vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-}
-
-.gestion-quiz{
-  text-align: right;
-}
-.button-card-gestion-quiz{
-  cursor:pointer;
-  background-color: $headbandColor;
-  border: solid 1px #000000;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5em 0.5em;
-  margin-left: 2rem;
-  outline: 0;
-  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
 }

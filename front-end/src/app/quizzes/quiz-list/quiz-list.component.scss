@@ -1,10 +1,10 @@
 .quiz-list {
-  position: absolute;
-  top: 40vh;
+  position: relative;
   left: 5vw;
   width: 30vw;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: flex-start;
-  background: white;
+  z-index: 0;
 }
