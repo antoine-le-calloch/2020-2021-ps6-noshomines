@@ -4,14 +4,11 @@
 .card{
   text-align: center;
   width: 500px;
-  position: absolute;
-  top: 53%;
-  left: 50%;
+  position: relative;
+  left: 30%;
   background: #763bd6;
   border: 1px solid black;
   border-radius: 20px;
-  transform: translate(-50%, -50%);
-
 }
 
 .button-card{

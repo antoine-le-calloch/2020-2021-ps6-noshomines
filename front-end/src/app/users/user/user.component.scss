@@ -1,7 +1,7 @@
 @import '../../../styles/card.scss';
 
 .card {
-  width: 120px;
+  width: fit-content;
   height: 110px;
   .fa-times {
     position: relative;
@@ -13,7 +13,7 @@
   .fa-4x{
     position: relative;
     bottom: 60%;
-    left: 2%;
+    right: 10%;
     cursor: pointer;
   }
   .txt {
@@ -46,6 +46,10 @@
     border: 3.5px solid #000000;
     outline:0;
     bottom:190%;
-    left: 75%;
+    left: 80%;
+  }
+
+  .option-card:hover{
+    cursor: pointer;
   }
 }
