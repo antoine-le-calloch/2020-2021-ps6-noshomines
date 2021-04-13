@@ -47,7 +47,9 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz): void {
-    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => {
+      this.retrieveQuizzes();
+      });
   }
 
   setSelectedQuiz(quizId: string): void {

@@ -7,9 +7,11 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
 import {GestionQuizComponent} from './quizzes/gestion-quiz/gestion-quiz.component';
 import {UserEditComponent} from './users/user-option/user-edit.component';
+import {QuizFormComponent} from './quizzes/quiz-form/quiz-form.component';
 
 
 const routes: Routes = [
+    {path: 'quiz-form', component: QuizFormComponent},
     {path: 'user-list', component: UserListComponent},
     {path: 'create-user', component: UserFormComponent},
     {path: 'quiz-list', component: QuizListComponent},
