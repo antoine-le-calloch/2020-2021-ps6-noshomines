@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
 
   modifyUser(user: User): void {
     this.userService.setSelectedUser(user.id);
-    this.router.navigate(['/option-quiz']);
+    this.router.navigate(['/user-edit']);
   }
 
 }

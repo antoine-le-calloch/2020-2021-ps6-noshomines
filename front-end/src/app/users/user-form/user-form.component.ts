@@ -19,8 +19,8 @@ export class UserFormComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
-      /*birthday: [''],
-      comment: [''],*/
+      /*birthday: [''],*/
+      comment: [''],
       pathology: [''],
       restartQuestionOption: false,
       displayScoreOption: true,

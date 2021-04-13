@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
-import { HeaderComponent } from './header/header.component';
+import { UserHeaderComponent } from './header/user-header/user-header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import {PlayQuizComponent} from './quizzes/play-quiz/play-quiz.component';
@@ -20,7 +20,7 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import {AnswerDisplayComponent} from './display/answer/answer-display.component';
 import {ResumeDisplayComponent} from './display/resume/resume-display.component';
-import {OptionQuizComponent} from './quizzes/option-quiz/option-quiz.component';
+import {UserEditComponent} from './users/user-option/user-edit.component';
 import {GestionQuizComponent} from './quizzes/gestion-quiz/gestion-quiz.component';
 import {MainpageHeaderComponent} from './header/mainpage-header/mainpage-header.component';
 
@@ -29,11 +29,11 @@ import {MainpageHeaderComponent} from './header/mainpage-header/mainpage-header.
     AppComponent,
     QuizListComponent,
     QuizComponent,
-    HeaderComponent,
+    UserHeaderComponent,
     QuizFormComponent,
     EditQuizComponent,
     PlayQuizComponent,
-    OptionQuizComponent,
+    UserEditComponent,
     QuestionListComponent,
     QuestionFormComponent,
     QuestionPlayComponent,
