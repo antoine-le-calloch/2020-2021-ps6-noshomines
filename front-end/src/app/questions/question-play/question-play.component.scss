@@ -14,41 +14,48 @@ h2{
   background: $app-background-color;
   border-radius: 1px;
   display: block;
-  margin-right: 5rem;
-  margin-left: 5rem;
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
   box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
   padding: 0 1em 1em 1em;
 
   .answers{
+    text-align: center;
     position: relative;
-    width: 84vw;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-  }
+    justify-content: space-between;
 
-  .answer{
-    text-align: center;
-    color: white;
-    font-size: 2.5vw;
-    font-weight: 500;
-    margin-left: 13.5rem;
-    margin-top: 1rem;
-    background: $headbandColor;
-    border-radius: 20px;
-    border: 3.5px solid #000000;
-    outline:0;
-  }
+    .answer{
+      text-align: center;
+      color: white;
+      font-size: 2.5vw;
+      font-weight: 500;
+      margin-top: 1rem;
+      background: $headbandColor;
+      border-radius: 20px;
+      border: 3.5px solid #000000;
+      outline:0;
+      visibility: visible;
+    }
 
-  .answer:hover {
-    cursor: pointer;
-    background: $cursorOnQuestion;
-    text-decoration:none;
-  }
+    .answer:hover {
+      cursor: pointer;
+      background: $cursorOnQuestion;
+      text-decoration:none;
+    }
 
-  .selected{
-    background: darkorange;
+    .selected{
+      background: darkorange;
+    }
+
+    .hide{
+      visibility: hidden;
+    }
   }
 }
 

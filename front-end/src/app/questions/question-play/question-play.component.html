@@ -8,10 +8,9 @@
   <div class="answers">
     <button class ="answer" *ngFor="let answer of question.answers; let i=index"
         [class.selected]="answer === selectedAnswer"
+        [class.hide]="listIndexAnswerFalse.includes(i)"
         (click)="onSelect(answer, i)">
-      <div *ngIf="!listIndexAnswerFalse.includes(i)">
         {{answer.value}}
-      </div>
     </button>
   </div>
 </div>
