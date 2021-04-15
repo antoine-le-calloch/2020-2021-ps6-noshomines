@@ -44,7 +44,7 @@ import {MainpageHeaderComponent} from './header/mainpage-header/mainpage-header.
     UserFormComponent,
     UserListComponent,
     GestionQuizComponent,
-    MainpageHeaderComponent
+    MainpageHeaderComponent,
   ],
     imports: [
         BrowserModule,

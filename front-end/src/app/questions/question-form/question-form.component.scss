@@ -9,10 +9,13 @@
   text-align: center;
   width: 300px;
   position: absolute;
-  left: 37%;
-  top: 20%;
+  left: 50%;
+  right: 50%;
+  top: 37%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   background: #763bd6;
   border: 1px solid black;
   border-radius: 20px;
 }
+
