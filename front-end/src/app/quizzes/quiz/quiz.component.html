@@ -5,6 +5,8 @@
       <h2>
           <i class="fab fa-leanpub"></i>
           {{quiz.name}}
+          <br>Thème : {{quiz.theme}}
+          <br>Questions : {{quiz.questions.length}}
       </h2>
     <div class="buttons">
       <button class="button-card-delete" (click)="delete()"> Supprimer  </button>
@@ -16,6 +18,7 @@
       <h2>
           <i class="fab fa-leanpub"></i>
           {{quiz.name}}
+          <br>Thème : {{quiz.theme}}
       </h2>
     <div class="buttons">
       <button class="button-card-play" (click)="selectQuiz()">  Jouer  </button>

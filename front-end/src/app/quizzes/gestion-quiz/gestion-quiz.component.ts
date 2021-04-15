@@ -21,10 +21,6 @@ export class GestionQuizComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  quizSelected(quiz: Quiz): void {
-    this.router.navigate(['/play-quiz/' + quiz.id]);
-  }
-
   editQuiz(quiz: Quiz): void {
     this.router.navigate(['/edit-quiz/' + quiz.id]);
   }

@@ -23,9 +23,8 @@ export class QuizFormComponent implements OnInit, OnDestroy {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
   public quizForm: FormGroup;
-  private quizSelectedSubscription: Subscription;
 
-  constructor(private router: Router, public formBuilder: FormBuilder, public quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: ['']
@@ -39,23 +38,11 @@ export class QuizFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.quizSelectedSubscription.unsubscribe();
   }
 
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
-
-    this.quizService.quizzes$.subscribe( (quiz) => {
-      this.quizService.setSelectedQuiz(quiz[quiz.length - 1].id);
-      console.log(quiz[quiz.length - 1].id);
-    });
-
-
-    this.quizSelectedSubscription = this.quizService.quizSelected$.subscribe((quiz) => {
-      this.router.navigate(['/edit-quiz/' + quiz.id]);
-    });
-
     this.quizService.addQuiz(quizToCreate);
   }
 

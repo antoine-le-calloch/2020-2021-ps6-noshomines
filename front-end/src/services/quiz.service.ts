@@ -5,6 +5,7 @@ import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -35,21 +36,24 @@ export class QuizService {
 
   private httpOptions = httpOptionsBase;
 
-  constructor(private http: HttpClient) {
-    this.retrieveQuizzes();
+  constructor(private router: Router, private http: HttpClient) {
+    this.retrieveQuizzes(false);
   }
 
-  retrieveQuizzes(): void {
+  retrieveQuizzes(isNavigate: boolean): void {
     this.http.get<Quiz[]>(this.quizUrl).subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
+      if (isNavigate) {
+        this.router.navigate(['/edit-quiz/' + this.quizzes[this.quizzes.length - 1].id]);
+      }
     });
   }
 
   addQuiz(quiz: Quiz): void {
     this.http.post<Quiz>(this.quizUrl, quiz, this.httpOptions).subscribe(() => {
-      this.retrieveQuizzes();
-      });
+      this.retrieveQuizzes(true);
+    });
   }
 
   setSelectedQuiz(quizId: string): void {
@@ -61,7 +65,7 @@ export class QuizService {
 
   deleteQuiz(quiz: Quiz): void {
     const urlWithId = this.quizUrl + '/' + quiz.id;
-    this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuizzes());
+    this.http.delete<Quiz>(urlWithId, this.httpOptions).subscribe(() => this.retrieveQuizzes(false));
   }
 
   addQuestion(quiz: Quiz, question: Question): void {
@@ -74,27 +78,4 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-  /*
-  Note: The functions below don't interact with the server. It's an example of implementation for the exercice 10.
-  addQuestion(quiz: Quiz, question: Question) {
-    quiz.questions.push(question);
-    const index = this.quizzes.findIndex((q: Quiz) => q.id === quiz.id);
-    if (index) {
-      this.updateQuizzes(quiz, index);
-    }
-  }
-
-  deleteQuestion(quiz: Quiz, question: Question) {
-    const index = quiz.questions.findIndex((q) => q.label === question.label);
-    if (index !== -1) {
-      quiz.questions.splice(index, 1)
-      this.updateQuizzes(quiz, index);
-    }
-  }
-
-  private updateQuizzes(quiz: Quiz, index: number) {
-    this.quizzes[index] = quiz;
-    this.quizzes$.next(this.quizzes);
-  }
-  */
 }

@@ -1,55 +1,43 @@
 @import '../../../styles/card.scss';
 
-.card {
+.card{
+  text-align: center;
   width: fit-content;
-  height: 110px;
-  .fa-times {
-    position: relative;
-    color: #fcfcfc;
-    bottom: 100%;
-    right: 20%;
-    cursor: pointer;
-  }
-  .fa-4x{
-    position: relative;
-    bottom: 60%;
-    right: 10%;
-    cursor: pointer;
-  }
-  .txt {
-    color: $txtColor;
-    position: relative;
-    bottom: 50%;
-    right: 10%;
+  background: #89ca89;
+  border: 1px solid black;
+  border-radius: 20px;
+
+  .button-card-play{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
   }
 
-  .fa-4x:hover{
-    color: $txtColor;
+  .button-card-edit{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    margin-left: 1rem;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
   }
 
-  #round{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background: red;
-    text-align: center;
-  }
-
-  .option-card{
-    position: relative;
-    text-align: center;
-    color: white;
-    font-size: 1vw;
-    font-weight: 200;
-    background: $headbandColor;
-    border-radius: 20px;
-    border: 3.5px solid #000000;
-    outline:0;
-    bottom:190%;
-    left: 80%;
-  }
-
-  .option-card:hover{
-    cursor: pointer;
+  .button-card-delete{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
   }
 }
