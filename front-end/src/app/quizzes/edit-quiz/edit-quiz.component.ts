@@ -21,5 +21,8 @@ export class EditQuizComponent implements OnInit {
     this.quizService.setSelectedQuiz(id);
   }
 
-
+  validateQuiz(): void {
+    this.quizService.retrieveQuizzes(false);
+    this.router.navigate(['/gestion-quiz']);
+  }
 }

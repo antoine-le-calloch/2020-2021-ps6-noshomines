@@ -24,7 +24,8 @@ export class UserFormComponent implements OnInit {
       pathology: [''],
       restartQuestionOption: false,
       displayScoreOption: true,
-      answerDisplayOption: false
+      answerDisplayOption: false,
+      pictureAnswerOption: false,
     });
   }
 
@@ -35,6 +36,7 @@ export class UserFormComponent implements OnInit {
     // We retrieve here the user object from the userForm and we cast the type "as User".
     const userToCreate: User = this.userForm.getRawValue() as User;
     this.setPathologyOption(userToCreate);
+    console.log(userToCreate.pictureAnswerOption);
     this.userService.addUser(userToCreate);
   }
 
@@ -52,8 +54,10 @@ export class UserFormComponent implements OnInit {
       case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
                                    userCreate.restartQuestionOption = true;
+                                   userCreate.pictureAnswerOption = true;
                                    break;
       case this.PATHOLOGY_LIST[6]: userCreate.displayScoreOption = false;
+                                   userCreate.pictureAnswerOption = true;
                                    break;
       default: break;
     }

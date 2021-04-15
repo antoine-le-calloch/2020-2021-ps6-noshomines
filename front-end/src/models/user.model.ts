@@ -8,4 +8,5 @@ export interface User {
     restartQuestionOption: boolean;
     displayScoreOption: boolean;
     answerDisplayOption: boolean;
+    pictureAnswerOption: boolean;
 }

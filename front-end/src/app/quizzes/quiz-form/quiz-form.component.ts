@@ -23,11 +23,14 @@ export class QuizFormComponent implements OnInit, OnDestroy {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
   public quizForm: FormGroup;
+  public isPictureAnswer: boolean;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+    this.isPictureAnswer = false;
     this.quizForm = this.formBuilder.group({
       name: [''],
-      theme: ['']
+      theme: [''],
+      isPictureAnswer: false,
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
@@ -43,7 +46,12 @@ export class QuizFormComponent implements OnInit, OnDestroy {
   addQuiz(): void {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
+    console.log(this.quizForm.value);
     this.quizService.addQuiz(quizToCreate);
   }
 
+  onSelect(): void {
+    this.isPictureAnswer = !this.isPictureAnswer;
+    console.log('isPictureAnswer : ' + this.isPictureAnswer);
+  }
 }

@@ -22,6 +22,7 @@ export class UserEditComponent implements OnInit {
   public restartQuestionOption: boolean;
   public answerDisplayOption: boolean;
   public displayScoreOption: boolean;
+  public pictureAnswerOption: boolean;
 
   constructor(private router: Router, public formBuilder: FormBuilder, public userService: UserService) {
   }
@@ -34,6 +35,7 @@ export class UserEditComponent implements OnInit {
         this.restartQuestionOption = user.restartQuestionOption;
         this.answerDisplayOption = user.answerDisplayOption;
         this.displayScoreOption = user.displayScoreOption;
+        this.pictureAnswerOption = user.pictureAnswerOption;
 
         this.userForm = this.formBuilder.group({
           id: user.id,
@@ -44,6 +46,7 @@ export class UserEditComponent implements OnInit {
           restartQuestionOption: user.restartQuestionOption,
           answerDisplayOption: user.answerDisplayOption,
           displayScoreOption: user.displayScoreOption,
+          pictureAnswerOption: user.pictureAnswerOption,
         });
     });
     this.initOptionForm();
@@ -82,6 +85,11 @@ export class UserEditComponent implements OnInit {
     console.log('displayScoreOption : ' + this.displayScoreOption);
   }
 
+  onSelectPictureAnswerOption(): void {
+    this.pictureAnswerOption = !this.pictureAnswerOption;
+    console.log('pictureAnswerOption : ' + this.pictureAnswerOption);
+  }
+
 
   setPathologyOption(userToModify: User): void {
     switch (userToModify.pathology){
@@ -89,26 +97,31 @@ export class UserEditComponent implements OnInit {
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = true;
         userToModify.restartQuestionOption = false;
+        userToModify.restartQuestionOption = false;
         break;
       case this.PATHOLOGY_LIST[3]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
+        userToModify.restartQuestionOption = false;
         userToModify.restartQuestionOption = false;
         break;
       case this.PATHOLOGY_LIST[4]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = true;
+        userToModify.restartQuestionOption = false;
         break;
       case this.PATHOLOGY_LIST[5]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
+        userToModify.restartQuestionOption = true;
         userToModify.restartQuestionOption = true;
         break;
       case this.PATHOLOGY_LIST[6]:
         userToModify.answerDisplayOption = false;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = false;
+        userToModify.restartQuestionOption = true;
         break;
       default: break;
     }
