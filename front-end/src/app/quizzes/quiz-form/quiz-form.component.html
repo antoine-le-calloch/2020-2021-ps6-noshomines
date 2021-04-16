@@ -12,10 +12,6 @@
       Thème <br>
       <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
     </label>
-    <div>
-      <input type="checkbox" id="restartQuestionCheckbox" name="Option" [checked]="this.isPictureAnswer"  [formControlName]="'isPictureAnswer'" (click)="onSelect()">
-      <label for="restartQuestionCheckbox">Réponse en image</label>
-    </div>
     <br>
     <button type="submit" class="button-card" routerLink="/gestion-quiz"> Retour </button>
     <button type="submit" class="button-card" (click)="addQuiz()"> Créer </button>

@@ -7,7 +7,7 @@
           {{quiz.name}}
           <br>Thème : {{quiz.theme}}
           <br>Questions : {{quiz.questions.length}}
-            <div class="rectangle" *ngIf="quiz.isPictureAnswer==true; then pictureAnswer else notPictureAnswer"></div>
+            <div class="rectangle" *ngIf="quiz.isPictureQuiz==true; then pictureAnswer else notPictureAnswer"></div>
             <ng-template #pictureAnswer>
               <br>Réponse en image : Oui
             </ng-template>

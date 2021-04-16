@@ -9,5 +9,5 @@ module.exports = new BaseModel('User', {
   restartQuestionOption: Joi.boolean().required(),
   displayScoreOption: Joi.boolean().required(),
   answerDisplayOption: Joi.boolean().required(),
-  pictureAnswerOption: Joi.boolean().required(),
+  pictureQuizOption: Joi.boolean().required(),
 })

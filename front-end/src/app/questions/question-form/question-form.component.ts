@@ -15,6 +15,7 @@ export class QuestionFormComponent implements OnInit {
   quiz: Quiz;
 
   public questionForm: FormGroup;
+  public isPictureAnswer: boolean;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
     // Form creation
@@ -22,9 +23,12 @@ export class QuestionFormComponent implements OnInit {
   }
 
   private initializeQuestionForm(): void {
+    this.isPictureAnswer = false;
+
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
-      answers: this.formBuilder.array([])
+      answers: this.formBuilder.array([]),
+      isPictureAnswer: false,
     });
   }
 
@@ -50,7 +54,13 @@ export class QuestionFormComponent implements OnInit {
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
       this.quizService.addQuestion(this.quiz, question);
+      console.log(this.questionForm.value);
       this.initializeQuestionForm();
     }
+  }
+
+  onSelect(): void {
+    this.isPictureAnswer = !this.isPictureAnswer;
+    console.log('isPictureAnswer : ' + this.isPictureAnswer);
   }
 }

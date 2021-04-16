@@ -18,10 +18,13 @@ export class QuizListComponent implements OnInit {
   constructor(private router: Router, public quizService: QuizService, public userService: UserService) {
     this.userService.userSelected$.subscribe((user) => {
       this.user = user;
+      console.log(user.pictureQuizOption);
     });
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;
+      console.log(quizzes.length);
     });
+
   }
 
   ngOnInit(): void {

@@ -3,9 +3,9 @@
 <div *ngIf="user">
   <div class="quiz-list">
       <div class="quiz" *ngFor="let quiz of quizList">
-          <div *ngIf="(user.pictureAnswerOption == true && quiz.isPictureAnswer == true) || user.pictureAnswerOption == false">
-            <app-quiz [quiz]="quiz" [isAdmin]="false" (quizSelected)="quizSelected($event)"></app-quiz>
-          </div>
+        <div *ngIf="(user.pictureQuizOption == true && quiz.isPictureQuiz == true) || user.pictureQuizOption == false">
+          <app-quiz [quiz]="quiz" [isAdmin]="false" (quizSelected)="quizSelected($event)"></app-quiz>
+        </div>
       </div>
   </div>
 </div>
