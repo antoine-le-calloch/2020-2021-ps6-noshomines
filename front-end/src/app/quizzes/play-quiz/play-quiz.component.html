@@ -2,12 +2,12 @@
 
 <div *ngIf="quiz && quiz.name != null">
   <h1 class="quiz-name"> Quiz {{quiz.name}}</h1>
-  <div *ngIf="quiz && indexQuestion < quiz.questions.length">
-    <h1 class="num-question">Question n°{{indexQuestion + 1}}/{{quiz.questions.length}}</h1>
+  <div *ngIf="quiz && indexQuestion < numberOfQuestions">
+    <h1 class="num-question">Question n°{{indexQuestion + 1}}/{{numberOfQuestions}}</h1>
   </div>
 </div>
 
-<div class="rectangle" *ngIf="quiz && indexQuestion < quiz.questions.length; then questionsBlock else noQuestionsBlock"></div>
+<div class="rectangle" *ngIf="quiz && indexQuestion < numberOfQuestions; then questionsBlock else noQuestionsBlock"></div>
 
   <ng-template #questionsBlock>
   <div *ngIf="printDisplay==false; then playBlock else displayBlock"></div>
@@ -30,7 +30,7 @@
       <div *ngIf="user.answerDisplayOption">
         <app-answer-display [isCorrect]="isCorrect" [question]="quiz.questions[indexQuestion]" ></app-answer-display>
       </div>
-      <div *ngIf="indexQuestion==quiz.questions.length-1; then end else next"></div>
+      <div *ngIf="indexQuestion==numberOfQuestions-1; then end else next"></div>
       <ng-template #end>
         <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Finir le quiz</button>
       </ng-template>
@@ -44,7 +44,7 @@
 
     <ng-template #noQuestionsBlock>
       <div class="end-quiz">
-      <app-resume-display [displayScoreOption]="user.displayScoreOption" [quiz]="quiz" [score]="score"></app-resume-display>
+      <app-resume-display [displayScoreOption]="user.displayScoreOption" [quiz]="quiz" [score]="score" [numberOfQuestions]="numberOfQuestions"></app-resume-display>
       <button type="submit" class="button-card-restart" (click)="restartQuiz()">Recommencez le quiz</button>
       <button type="submit" class="button-card-other-quiz" routerLink="/quiz-list">Jouer à un autre quiz</button>
       </div>

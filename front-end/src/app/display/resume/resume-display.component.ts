@@ -16,6 +16,9 @@ export class ResumeDisplayComponent implements OnInit {
   quiz: Quiz;
 
   @Input()
+  numberOfQuestions: number;
+
+  @Input()
   displayScoreOption: boolean;
 
   @Input()

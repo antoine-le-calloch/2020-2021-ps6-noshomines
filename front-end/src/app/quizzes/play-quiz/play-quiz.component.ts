@@ -4,6 +4,7 @@ import {Quiz} from '../../../models/quiz.model';
 import {QuizService} from '../../../services/quiz.service';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/user.model';
+import {max} from 'rxjs/operators';
 
 @Component({
   selector: 'app-play-quiz',
@@ -20,13 +21,14 @@ export class PlayQuizComponent implements OnInit {
   public indexAnswer: number;
   public listIndexAnswerFalse: Array<number>;
   public score: number;
+  public numberOfQuestions: number;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public userService: UserService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
     this.userService.userSelected$.subscribe((user) => {
       this.user = user;
+      this.numberOfQuestions = parseInt(user.numberOfQuestionsMaxForPlayQuizOption, 10);
     });
-
     this.indexQuestion = 0;
     this.score = 0;
     this.printDisplay = false;
