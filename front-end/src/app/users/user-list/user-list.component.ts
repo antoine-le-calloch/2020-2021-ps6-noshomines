@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
 import {Router} from '@angular/router';
+import {QuizService} from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +14,7 @@ export class UserListComponent implements OnInit {
 
   public userList: User[] = [];
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService, public quizService: QuizService) {
     this.userService.users$.subscribe((users: User[]) => {
       this.userList = users;
     });
