@@ -25,6 +25,7 @@ export class UserFormComponent implements OnInit {
       displayScoreOption: true,
       answerDisplayOption: false,
       pictureQuizOption: false,
+      numberOfQuestionsMaxForPlayQuizOption: '0',
     });
   }
 
@@ -42,22 +43,31 @@ export class UserFormComponent implements OnInit {
 
   setPathologyOption(userCreate: User): void {
     switch (userCreate.pathology){
+      case this.PATHOLOGY_LIST[0]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
+                                   break;
+      case this.PATHOLOGY_LIST[1]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
+                                   break;
       case this.PATHOLOGY_LIST[2]: userCreate.answerDisplayOption = true;
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
                                    break;
       case this.PATHOLOGY_LIST[3]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
                                    break;
       case this.PATHOLOGY_LIST[4]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
                                    userCreate.restartQuestionOption = true;
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
                                    break;
       case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
                                    userCreate.restartQuestionOption = true;
                                    userCreate.pictureQuizOption = true;
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
                                    break;
       case this.PATHOLOGY_LIST[6]: userCreate.displayScoreOption = false;
                                    userCreate.pictureQuizOption = true;
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
                                    break;
       default: break;
     }

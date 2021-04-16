@@ -7,7 +7,6 @@
 
     <h3>Prénom : {{firstName}}</h3>
     <h3>Nom : {{lastName}}</h3>
-
     <label for="comment">
       <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
     </label>
@@ -42,8 +41,17 @@
         <input type="checkbox" id="pictureAnswerOption" name="Option" [checked]="this.pictureQuizOption" [formControlName]="'pictureQuizOption'" (click)="onSelectPictureQuizOption()">
         <label for="displayScoreOptionCheckbox">Jouer que des quiz imagé</label>
       </div>
+      <div class="limit-question">
+        <label for="limit-question">
+          <select name="pathology-list" id="limit-question" [formControlName]="'numberOfQuestionsMaxForPlayQuizOption'">
+            <option value="">--Choisissez une des options--</option>
+            <option *ngFor="let number of LIMIT_QUESTION_PLAY_LIST" [value]="number">
+              {{ number }}
+            </option>
+          </select>
+        </label>
+      </div>
     </div>
-
 
     <button class="cancel-card" routerLink="/user-list">Annuler</button>
     <button type="button" class="validate-card" (click)="validate()">Valider</button>

@@ -15,14 +15,17 @@ export class UserEditComponent implements OnInit {
   public user: User;
 
   public PATHOLOGY_LIST: string[] = ['aucune', 'Alzheimer stade 1', 'Alzheimer stade 2', 'Alzheimer stade 3', 'Alzheimer stade 4', 'Alzheimer stade 5 et +', 'tumeur du cerveau'];
+  public LIMIT_QUESTION_PLAY_LIST: string[] = ['5', '10', '15', '20'];
 
   public userForm: FormGroup;
   public firstName: string;
   public lastName: string;
+  public pathology: string;
   public restartQuestionOption: boolean;
   public answerDisplayOption: boolean;
   public displayScoreOption: boolean;
   public pictureQuizOption: boolean;
+  public numberOfQuestionsMaxForPlayQuizOption: string;
 
   constructor(private router: Router, public formBuilder: FormBuilder, public userService: UserService) {
   }
@@ -31,11 +34,12 @@ export class UserEditComponent implements OnInit {
     this.userService.userSelected$.subscribe((user) => {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
-
+        this.pathology = user.pathology;
         this.restartQuestionOption = user.restartQuestionOption;
         this.answerDisplayOption = user.answerDisplayOption;
         this.displayScoreOption = user.displayScoreOption;
         this.pictureQuizOption = user.pictureQuizOption;
+        this.numberOfQuestionsMaxForPlayQuizOption = user.numberOfQuestionsMaxForPlayQuizOption;
 
         this.userForm = this.formBuilder.group({
           id: user.id,
@@ -47,6 +51,7 @@ export class UserEditComponent implements OnInit {
           answerDisplayOption: user.answerDisplayOption,
           displayScoreOption: user.displayScoreOption,
           pictureQuizOption: user.pictureQuizOption,
+          numberOfQuestionsMaxForPlayQuizOption: user.numberOfQuestionsMaxForPlayQuizOption,
         });
     });
     this.initOptionForm();
@@ -91,37 +96,57 @@ export class UserEditComponent implements OnInit {
   }
 
 
+
   setPathologyOption(userToModify: User): void {
     switch (userToModify.pathology){
+      case this.PATHOLOGY_LIST[0]:
+        userToModify.pictureQuizOption = false;
+        userToModify.answerDisplayOption = false;
+        userToModify.displayScoreOption = true;
+        userToModify.restartQuestionOption = false;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '20';
+        break;
+      case this.PATHOLOGY_LIST[1]:
+        userToModify.pictureQuizOption = false;
+        userToModify.answerDisplayOption = false;
+        userToModify.displayScoreOption = true;
+        userToModify.restartQuestionOption = false;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '20';
+        break;
       case this.PATHOLOGY_LIST[2]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = true;
         userToModify.restartQuestionOption = false;
         userToModify.pictureQuizOption = false;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '15';
         break;
       case this.PATHOLOGY_LIST[3]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = false;
         userToModify.pictureQuizOption = false;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '10';
         break;
       case this.PATHOLOGY_LIST[4]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = true;
         userToModify.pictureQuizOption = false;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '10';
         break;
       case this.PATHOLOGY_LIST[5]:
         userToModify.answerDisplayOption = true;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = true;
         userToModify.pictureQuizOption = true;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '5';
         break;
       case this.PATHOLOGY_LIST[6]:
         userToModify.answerDisplayOption = false;
         userToModify.displayScoreOption = false;
         userToModify.restartQuestionOption = false;
         userToModify.pictureQuizOption = true;
+        userToModify.numberOfQuestionsMaxForPlayQuizOption = '5';
         break;
       default: break;
     }

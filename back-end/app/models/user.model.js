@@ -10,4 +10,5 @@ module.exports = new BaseModel('User', {
   displayScoreOption: Joi.boolean().required(),
   answerDisplayOption: Joi.boolean().required(),
   pictureQuizOption: Joi.boolean().required(),
+  numberOfQuestionsMaxForPlayQuizOption: Joi.string().required(),
 })

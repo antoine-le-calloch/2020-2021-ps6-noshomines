@@ -8,4 +8,5 @@ export interface User {
     displayScoreOption: boolean;
     answerDisplayOption: boolean;
     pictureQuizOption: boolean;
+    numberOfQuestionsMaxForPlayQuizOption: string;
 }
