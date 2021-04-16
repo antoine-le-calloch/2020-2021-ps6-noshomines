@@ -28,7 +28,7 @@ export class QuizFormComponent implements OnInit, OnDestroy {
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: [''],
-      isPictureQuiz: false,
+      isPictureQuiz: true,
     });
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation

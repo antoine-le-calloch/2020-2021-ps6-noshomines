@@ -39,8 +39,8 @@ export class EditQuizComponent implements OnInit {
     this.intializeQuiz();
 
     this.quiz.questions.forEach(item => {
-      if (item.isPictureAnswer){
-        this.quizForm.patchValue({isPictureQuiz: true});
+      if (!item.isPictureAnswer){
+        this.quizForm.patchValue({isPictureQuiz: false});
       }
     });
 
