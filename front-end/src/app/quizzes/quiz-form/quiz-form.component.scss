@@ -14,12 +14,27 @@
   border-radius: 20px;
 }
 
-.button-card{
-  cursor:pointer;
-  background-color: $headbandColor;
-  border: solid 1px #000000;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5em 1em;
-  outline: 0;
+.buttons{
+  text-align: center;
+  .button-card-back{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+  .button-card-create{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    margin-left: 1rem;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
 }

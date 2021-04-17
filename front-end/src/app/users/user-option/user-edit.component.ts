@@ -96,7 +96,6 @@ export class UserEditComponent implements OnInit {
   }
 
 
-
   setPathologyOption(userToModify: User): void {
     switch (userToModify.pathology){
       case this.PATHOLOGY_LIST[0]:

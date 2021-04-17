@@ -7,6 +7,10 @@
   border: 1px solid black;
   border-radius: 20px;
 
+  .fa-user{
+    cursor: pointer;
+  }
+
   .button-card-play{
     cursor:pointer;
     background-color: $headbandColor;

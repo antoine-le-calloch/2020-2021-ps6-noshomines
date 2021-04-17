@@ -5,7 +5,7 @@ import { Quiz } from '../models/quiz.model';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {Router} from '@angular/router';
-import {User} from "../models/user.model";
+import {User} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'

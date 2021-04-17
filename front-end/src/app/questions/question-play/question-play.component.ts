@@ -11,7 +11,6 @@ import {Answer, Question} from '../../../models/question.model';
 export class QuestionPlayComponent implements OnInit {
 
   selectedAnswer?: Answer;
-  hideAnswer?: Answer;
 
   @Input()
   question: Question;
@@ -37,9 +36,6 @@ export class QuestionPlayComponent implements OnInit {
   onSelect(answer: Answer, indexAnswer: number): void {
     this.selectedAnswer = answer;
     this.indexAnswerChecked.emit(indexAnswer);
-    if (!this.selectedAnswer.isCorrect){
-      this.hideAnswer = this.selectedAnswer;
-    }
   }
 
 

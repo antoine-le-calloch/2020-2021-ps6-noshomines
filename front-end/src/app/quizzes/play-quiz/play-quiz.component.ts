@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Quiz} from '../../../models/quiz.model';
+import {Question} from '../../../models/question.model';
 import {QuizService} from '../../../services/quiz.service';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/user.model';
@@ -12,6 +13,7 @@ import {max} from 'rxjs/operators';
   styleUrls: ['./play-quiz.component.scss']
 })
 export class PlayQuizComponent implements OnInit {
+
   public quiz: Quiz;
   public user: User;
 
@@ -22,6 +24,7 @@ export class PlayQuizComponent implements OnInit {
   public listIndexAnswerFalse: Array<number>;
   public score: number;
   public numberOfQuestions: number;
+
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public userService: UserService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);

@@ -4,10 +4,9 @@
 <div class="card">
   <form class="user-form" [formGroup]="userForm">
     <h2>Editez le profil : </h2>
-
     <h3>Prénom : {{firstName}}</h3>
     <h3>Nom : {{lastName}}</h3>
-    <h3>Nom : {{numberOfQuestionsMaxForPlayQuizOption}}</h3>
+    <h3>Nombre de questions max : {{numberOfQuestionsMaxForPlayQuizOption}}</h3>
     <label for="comment">
       <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
     </label>
@@ -24,7 +23,7 @@
     </div>
     <br>
 
-    <div>
+    <div class="options-list">
       <div>
 
         <input type="checkbox" id="restartQuestionCheckbox" name="Option" [checked]="this.restartQuestionOption"  [formControlName]="'restartQuestionOption'" (click)="onSelectRestartQuestionOption()">
