@@ -10,10 +10,19 @@
         [class.selected]="answer === selectedAnswer"
         [class.hide]="listIndexAnswerFalse.includes(i)"
         (click)="onSelect(answer, i)">
-        {{answer.value}}
+        <div *ngIf="question.isPictureAnswer==true; then quizPicture else quizText"></div>
+          <ng-template #quizPicture>
+            <img src="../assets/images/{{answer.value}}.png"/>
+          </ng-template>
+          <ng-template #quizText>
+            {{answer.value}}
+          </ng-template>
     </button>
   </div>
 </div>
+
+
+
 
 <!--<h1>{{isGoodAnswerChecked}}</h1>-->
 <!--<br><br>{{questionPlayForm.getRawValue() | json}}-->
