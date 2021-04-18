@@ -32,7 +32,7 @@ export class PlayQuizComponent implements OnInit {
       this.user = user;
     });
     this.quizService.quizSelected$.subscribe((quiz) => {
-      this.quiz = quiz;
+      this.quiz = this.shuffle(quiz);
       if (quiz && this.user ){
         if ( parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10) > quiz.questions.length){
           this.numberOfQuestions = quiz.questions.length;
@@ -101,5 +101,18 @@ export class PlayQuizComponent implements OnInit {
     this.indexQuestion = 0;
     this.listIndexAnswerFalse = [];
   }
+  shuffle(quiz: Quiz): Quiz {
+    let j = 0;
+    let temp = quiz.questions[0];
+    let i = quiz.questions.length - 1  ;
+    for (; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = quiz.questions[i];
+      quiz.questions[i] = quiz.questions[j];
+      quiz.questions[j] = temp;
+    }
+    return quiz;
+  }
 
 }
+
