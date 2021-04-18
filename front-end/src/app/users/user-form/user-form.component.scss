@@ -18,11 +18,11 @@
   }
   width: fit-content;
   height: fit-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
   .submit-card{
     margin: 10px;
     cursor:pointer;

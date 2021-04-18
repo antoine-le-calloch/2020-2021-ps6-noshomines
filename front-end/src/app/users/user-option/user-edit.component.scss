@@ -3,6 +3,13 @@
 .card{
   text-align: center;
   background-color: white;
+
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   .fa-user-circle{
     color: $txtColor;
     position: relative;
@@ -16,14 +23,6 @@
     border: 2px solid $txtColor;
     width: 200px;
   }
-
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
 
   .cancel-card{
     margin-left: -2vw;

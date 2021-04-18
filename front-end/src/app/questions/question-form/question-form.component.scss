@@ -7,12 +7,12 @@
 
 .card{
   text-align: center;
-  width: 300px;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  top: 40%;
-  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   z-index: 1;
   background: #763bd6;
   border: 1px solid black;
