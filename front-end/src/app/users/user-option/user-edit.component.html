@@ -3,21 +3,16 @@
 
 <div class="card">
   <form class="user-form" [formGroup]="userForm">
-    <h2>Editez le profil : </h2>
-    <h3>Prénom : {{firstName}}</h3>
-    <h3>Nom : {{lastName}}</h3>
-    <h3>Nombre de questions max : {{numberOfQuestionsMaxForPlayQuizOption}}</h3>
-    <label for="comment">
+    <h2>Editer le profil : </h2>
+    <h3>{{firstName}} {{lastName}}</h3>
+    <label for="comment"> commentaire :
       <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
     </label>
     <br>
     <div class="pathology">
       <label for="pathology">
-        <select name="pathology-list" id="pathology" [formControlName]="'pathology'">
-          <option value="">--Choisissez une des options--</option>
-          <option *ngFor="let currentPathology of PATHOLOGY_LIST" [value]="currentPathology">
-            {{ currentPathology }}
-          </option>
+        <select name="pathology-list" id="pathology" [formControlName]="'pathology'" (change)="setPathologyOption($event)">
+          <option *ngFor="let currentPathology of PATHOLOGY_LIST"> {{ currentPathology }} </option>
         </select>
       </label>
     </div>
@@ -38,17 +33,16 @@
         <label for="displayScoreOptionCheckbox">Afficher le score du quiz</label>
       </div>
       <div>
-        <input type="checkbox" id="pictureAnswerOption" name="Option" [checked]="this.pictureQuizOption" [formControlName]="'pictureQuizOption'" (click)="onSelectPictureQuizOption()">
-        <label for="displayScoreOptionCheckbox">Jouer que des quiz imagé</label>
+        <input type="checkbox" id="pictureAnswerOptionCheckbox" name="Option" [checked]="this.pictureQuizOption" [formControlName]="'pictureQuizOption'" (click)="onSelectPictureQuizOption()">
+        <label for="pictureAnswerOptionCheckbox">Jouer que des quiz imagé</label>
       </div>
       <div class="limit-question">
         <label for="limit-question">
-          <select name="pathology-list" id="limit-question" [formControlName]="'numberOfQuestionsMaxForPlayQuizOption'">
-            <option value="">--Choisissez une des options--</option>
-            <option *ngFor="let number of LIMIT_QUESTION_PLAY_LIST" [value]="number">
+          <select name="pathology-list" id="limit-question" [value]="numberOfQuestionsMaxForPlayQuizOption" [formControlName]="'numberOfQuestionsMaxForPlayQuizOption'">
+            <option *ngFor="let number of LIMIT_QUESTION_PLAY_LIST">
               {{ number }}
             </option>
-          </select>
+          </select> Nombre de questions max
         </label>
       </div>
     </div>

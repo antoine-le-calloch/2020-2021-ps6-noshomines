@@ -27,6 +27,7 @@ export class UserEditComponent implements OnInit {
   public pictureQuizOption: boolean;
   public numberOfQuestionsMaxForPlayQuizOption: string;
 
+
   constructor(private router: Router, public formBuilder: FormBuilder, public userService: UserService) {
   }
 
@@ -63,7 +64,6 @@ export class UserEditComponent implements OnInit {
 
   validate(): void {
     const userToModify: User = this.userForm.getRawValue() as User;
-    this.setPathologyOption(userToModify);
     this.userService.modifyUser(userToModify);
     console.log(this.userForm.value);
     this.sleep(100);
@@ -96,56 +96,65 @@ export class UserEditComponent implements OnInit {
   }
 
 
-  setPathologyOption(userToModify: User): void {
-    switch (userToModify.pathology){
+  setPathologyOption(pathology: Event): void {
+    console.log('test');
+    this.pathology = (pathology.target as HTMLTextAreaElement).value;
+    switch (this.pathology){
       case this.PATHOLOGY_LIST[0]:
-        userToModify.pictureQuizOption = false;
-        userToModify.answerDisplayOption = false;
-        userToModify.displayScoreOption = true;
-        userToModify.restartQuestionOption = false;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '20';
+        this.pictureQuizOption = false;
+        this.answerDisplayOption = false;
+        this.displayScoreOption = true;
+        this.restartQuestionOption = false;
+        this.numberOfQuestionsMaxForPlayQuizOption = '20';
+        console.log(this.PATHOLOGY_LIST[0]);
         break;
       case this.PATHOLOGY_LIST[1]:
-        userToModify.pictureQuizOption = false;
-        userToModify.answerDisplayOption = false;
-        userToModify.displayScoreOption = true;
-        userToModify.restartQuestionOption = false;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '20';
+        this.pictureQuizOption = false;
+        this.answerDisplayOption = false;
+        this.displayScoreOption = true;
+        this.restartQuestionOption = false;
+        this.numberOfQuestionsMaxForPlayQuizOption = '20';
+        console.log(this.PATHOLOGY_LIST[1]);
         break;
       case this.PATHOLOGY_LIST[2]:
-        userToModify.answerDisplayOption = true;
-        userToModify.displayScoreOption = true;
-        userToModify.restartQuestionOption = false;
-        userToModify.pictureQuizOption = false;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '15';
+        this.answerDisplayOption = true;
+        this.displayScoreOption = true;
+        this.restartQuestionOption = false;
+        this.pictureQuizOption = false;
+        this.numberOfQuestionsMaxForPlayQuizOption = '15';
+        console.log(this.PATHOLOGY_LIST[2]);
         break;
       case this.PATHOLOGY_LIST[3]:
-        userToModify.answerDisplayOption = true;
-        userToModify.displayScoreOption = false;
-        userToModify.restartQuestionOption = false;
-        userToModify.pictureQuizOption = false;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '10';
+        this.answerDisplayOption = true;
+        this.displayScoreOption = false;
+        this.restartQuestionOption = false;
+        this.pictureQuizOption = false;
+        this.numberOfQuestionsMaxForPlayQuizOption = '10';
+        console.log(this.PATHOLOGY_LIST[3]);
         break;
       case this.PATHOLOGY_LIST[4]:
-        userToModify.answerDisplayOption = true;
-        userToModify.displayScoreOption = false;
-        userToModify.restartQuestionOption = true;
-        userToModify.pictureQuizOption = false;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '10';
+        this.answerDisplayOption = true;
+        this.displayScoreOption = false;
+        this.restartQuestionOption = true;
+        this.pictureQuizOption = false;
+        this.numberOfQuestionsMaxForPlayQuizOption = '10';
+        console.log(this.PATHOLOGY_LIST[4]);
         break;
       case this.PATHOLOGY_LIST[5]:
-        userToModify.answerDisplayOption = true;
-        userToModify.displayScoreOption = false;
-        userToModify.restartQuestionOption = true;
-        userToModify.pictureQuizOption = true;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '5';
+        this.answerDisplayOption = true;
+        this.displayScoreOption = false;
+        this.restartQuestionOption = true;
+        this.pictureQuizOption = true;
+        this.numberOfQuestionsMaxForPlayQuizOption = '5';
+        console.log(this.PATHOLOGY_LIST[5]);
         break;
       case this.PATHOLOGY_LIST[6]:
-        userToModify.answerDisplayOption = false;
-        userToModify.displayScoreOption = false;
-        userToModify.restartQuestionOption = false;
-        userToModify.pictureQuizOption = true;
-        userToModify.numberOfQuestionsMaxForPlayQuizOption = '5';
+        this.answerDisplayOption = false;
+        this.displayScoreOption = false;
+        this.restartQuestionOption = false;
+        this.pictureQuizOption = true;
+        this.numberOfQuestionsMaxForPlayQuizOption = '5';
+        console.log(this.PATHOLOGY_LIST[6]);
         break;
       default: break;
     }
