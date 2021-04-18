@@ -1,8 +1,7 @@
 <div class="card">
-  <h2>Créer une nouvelle question</h2>
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="label">
-      Titre <br>
+      Titre de la nouvelle question<br>
       <input class="input-custom" type="text" id="label" [formControlName]="'label'">
     </label>
     <br>
@@ -10,13 +9,19 @@
       <input type="checkbox" id="restartQuestionCheckbox" name="Option" [checked]="this.isPictureAnswer"  [formControlName]="'isPictureAnswer'" (click)="onSelect()">
       <label for="restartQuestionCheckbox">Réponse en image</label>
     </div>
-    <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+    <button class="button-card" (click)="addAnswer()">Ajouter une réponse à la question</button>
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i=index">
         <div class="answer-form" [formGroupName]="i">
           <label>
             Réponse
-            <input type="text" [formControlName]="'value'">
+            <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
+            <ng-template #inputText>
+              <input type="text" [formControlName]="'value'">
+            </ng-template>
+            <ng-template #inputPicture>
+              <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image depuis Google">
+            </ng-template>
             <br>
             Correcte
             <input type="checkbox" [formControlName]="'isCorrect'">
@@ -24,7 +29,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Créer</button>
+    <button type="submit" class="button-card-add-question" (click)="addQuestion()">Ajouter la question au quiz</button>
   </form>
 </div>
 

@@ -19,3 +19,19 @@
   border-radius: 20px;
 }
 
+.button-card-add-question{
+  margin-left: 70%;
+  margin-top: 10%;
+  cursor: pointer;
+  background-color: #128796;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  box-shadow: 0.2em 0.2em rgb(0 0 0 / 50%);
+  outline: 0;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+

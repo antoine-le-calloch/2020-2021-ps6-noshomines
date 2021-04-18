@@ -43,6 +43,12 @@ h2{
       visibility: visible;
     }
 
+    .answer-picture:hover{
+      cursor: pointer;
+      background: $cursorOnQuestion;
+      text-decoration:none;
+    }
+
     .answer:hover {
       cursor: pointer;
       background: $cursorOnQuestion;
@@ -57,12 +63,6 @@ h2{
       visibility: hidden;
     }
   }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 
