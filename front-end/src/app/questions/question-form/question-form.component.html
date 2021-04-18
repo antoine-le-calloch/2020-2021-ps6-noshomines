@@ -15,7 +15,13 @@
         <div class="answer-form" [formGroupName]="i">
           <label>
             Réponse
-            <input type="text" [formControlName]="'value'">
+            <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
+            <ng-template #inputText>
+              <input type="text" [formControlName]="'value'">
+            </ng-template>
+            <ng-template #inputPicture>
+              <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image depuis Google">
+            </ng-template>
             <br>
             Correcte
             <input type="checkbox" [formControlName]="'isCorrect'">
