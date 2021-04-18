@@ -27,10 +27,21 @@ export class PlayQuizComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private quizService: QuizService, public userService: UserService) {
-    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+
     this.userService.userSelected$.subscribe((user) => {
       this.user = user;
-      this.numberOfQuestions = parseInt(user.numberOfQuestionsMaxForPlayQuizOption, 10);
+    });
+    this.quizService.quizSelected$.subscribe((quiz) => {
+      this.quiz = quiz;
+      if (quiz && this.user ){
+        if ( parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10) > quiz.questions.length){
+          this.numberOfQuestions = quiz.questions.length;
+        }
+        else{
+          this.numberOfQuestions = parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10);
+        }
+      }
+
     });
     this.indexQuestion = 0;
     this.score = 0;
