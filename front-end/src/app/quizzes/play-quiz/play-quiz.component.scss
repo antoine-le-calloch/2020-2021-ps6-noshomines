@@ -4,6 +4,7 @@ h1{
   font-size: 2.5vw;
   font-weight: bold;
   line-height: 1;
+  text-align: center;
 }
 
 .quiz-name{
@@ -23,6 +24,7 @@ app-resume-display{
 }
 
 .end-quiz{
+    text-align: center;
     background: $app-background-color;
     display: block;
     margin-right: 5rem;
@@ -87,12 +89,13 @@ app-quiz-list{
   color: #ffffff;
   cursor:pointer;
   font-weight: bold;
-  margin-left: 25%;
   padding: 0.5em 2.5em;
+  margin-top: 1vw;
   font-size: large;
   outline: 0;
   box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
 }
+
 .button-card-other-quiz{
   background-color: $headbandColor;
   border: solid 1px black;

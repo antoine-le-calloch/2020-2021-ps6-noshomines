@@ -5,7 +5,6 @@
 html {
   font: 500 20px/32px Roboto, "DIN Alternate", sans-serif;
 }
-
 body {
   background-color: $app-background-color;
   h1{
@@ -23,8 +22,8 @@ body {
     }
   }
   img{
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: auto;
     pointer-events: none;
     border: 0;
   }

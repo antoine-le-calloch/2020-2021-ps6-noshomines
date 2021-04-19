@@ -3,14 +3,9 @@
 <div class="card">
   <h2>Créer un nouveau quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
-    <label for="name">
-      Titre <br>
+    <label for="theme">Titre <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'" placeholder="Titre">
-    </label>
-    <br>
-    <label for="theme">
-      Thème <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'" placeholder="Thème">
+      <input class="input-custom" type="text" id="theme" [formControlName]="'name'" placeholder="exemple: Foot">
     </label>
     <br>
     <div class="buttons">
