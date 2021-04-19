@@ -14,9 +14,10 @@
   </ng-template>
   <div *ngIf="question.isPictureAnswer == true; then pictureDisplay else textDisplay"></div>
     <ng-template #pictureDisplay>
-      <h3>La réponse à la question : "{{question.label}}" est : <a href="{{findAnswer()}}"><span><img src="{{findAnswer()}}"></span></a></h3>
+      <h3>La réponse à la question : "{{question.label}}" est : <br><br>
+        <a href="{{findAnswer()}}"><span><img src="{{findAnswer()}}"></span></a></h3>
     </ng-template>
     <ng-template #textDisplay>
-      <h3>La réponse à la question : "{{question.label}}" est : {{findAnswer()}}</h3>
+      <h2>La réponse à la question : "{{question.label}}" est : {{findAnswer()}}</h2>
     </ng-template>
 </div>
