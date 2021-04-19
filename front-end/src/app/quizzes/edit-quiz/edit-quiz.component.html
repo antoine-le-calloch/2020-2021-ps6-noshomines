@@ -1,11 +1,14 @@
 <app-mainpage-header></app-mainpage-header>
 
 <ng-container *ngIf="quiz">
-    <h2>Nom du quiz : {{quiz.name}}</h2>
-    <h2>Nom du theme : {{quiz.theme}}</h2>
-    <button type="submit" class="button-card-validate" (click)="validateQuiz()">Valider</button>
+    <h2>Quiz : {{quiz.name}}</h2>
+    <h2>Theme : {{quiz.theme}}</h2>
     <app-question-form [quiz]="quiz"></app-question-form>
+    <div class="center">
+      <button type="submit" class="button-card-validate" (click)="validateQuiz()">Valider</button>
+    </div>
     <app-question-list [quiz]="quiz"></app-question-list>
+
 </ng-container>
 
 

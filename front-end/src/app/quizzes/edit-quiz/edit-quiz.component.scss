@@ -1,17 +1,23 @@
 @import '../../../styles/card.scss';
 
-.button-card-validate{
-  cursor:pointer;
-  background-color: $headbandColor;
-  border: solid 1px #000000;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 0.5em 0.5em;
-  outline: 0;
-  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
-  margin-left: 5px;
-}
-
 h2{
   text-align: center;
 }
+
+.center {
+  text-align: center;
+
+  .button-card-validate{
+    cursor:pointer;
+    background-color: $greenForButton;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: center;
+  }
+}
+

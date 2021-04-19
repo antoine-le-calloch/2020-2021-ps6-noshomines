@@ -5,17 +5,17 @@
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="name">
       Titre <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'" placeholder="Foot">
+      <input class="input-custom" type="text" id="name" [formControlName]="'name'" placeholder="Titre">
     </label>
     <br>
     <label for="theme">
       Thème <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'" placeholder="Sport">
+      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'" placeholder="Thème">
     </label>
     <br>
     <div class="buttons">
-      <button type="submit" class="button-card-back"  routerLink="/gestion-quiz"> Retour </button>
-      <button type="submit" class="button-card-create" (click)="addQuiz()"> Créer </button>
+      <button type="submit" class="cancel-card"  routerLink="/gestion-quiz"> Annuler </button>
+      <button type="submit" class="submit-card" (click)="addQuiz()"> Créer </button>
     </div>
   </form>
 </div>
