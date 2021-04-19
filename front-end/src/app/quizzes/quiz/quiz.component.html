@@ -1,6 +1,5 @@
-<div class="card">
+<div class="card" [class.background-picture]="quiz.isPictureQuiz">
   <div class="rectangle" *ngIf="isAdmin==true; then admin else user"></div>
-
   <ng-template #admin>
       <h2>
           <i class="fab fa-leanpub"></i>
