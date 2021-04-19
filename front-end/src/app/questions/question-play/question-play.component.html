@@ -3,11 +3,11 @@
   <h2>
     <br>
     <i class="fab fa-leanpub"></i>
-    Question : {{question.label}} :
+     {{question.label}} :
   </h2>
   <div *ngIf="listIndexAnswerFalse.length !==0; then message"></div>
     <ng-template #message>
-      <h3> Réeesayez vous y êtes presque ! </h3>
+      <h3> Réessayer vous y êtes presque ! </h3>
     </ng-template>
   <div class="answers">
     <div *ngIf="question.isPictureAnswer ==true; then quizPicture else quizText"></div>
