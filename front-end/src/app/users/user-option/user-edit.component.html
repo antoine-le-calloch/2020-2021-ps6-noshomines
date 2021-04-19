@@ -11,7 +11,7 @@
     <br>
     <div class="pathology">
       <label for="pathology">
-        <select name="pathology-list" id="pathology" [formControlName]="'pathology'" (change)="setPathologyOption($event)">
+        <select name="pathology-list" id="pathology" [formControlName]="'pathology'" (change)="setPathologyOption($event)" >
           <option *ngFor="let currentPathology of PATHOLOGY_LIST"> {{ currentPathology }} </option>
         </select>
       </label>
