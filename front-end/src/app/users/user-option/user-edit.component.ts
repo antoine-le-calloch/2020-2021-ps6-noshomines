@@ -13,8 +13,7 @@ import {Router} from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   public user: User;
-
-  public PATHOLOGY_LIST: string[] = ['aucune', 'Alzheimer stade 1', 'Alzheimer stade 2', 'Alzheimer stade 3', 'Alzheimer stade 4', 'Alzheimer stade 5 et +', 'tumeur du cerveau'];
+  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
   public LIMIT_QUESTION_PLAY_LIST: string[] = ['5', '10', '15', '20'];
 
   public userForm: FormGroup;
@@ -147,14 +146,6 @@ export class UserEditComponent implements OnInit {
         this.pictureQuizOption = true;
         this.numberOfQuestionsMaxForPlayQuizOption = '5';
         console.log(this.PATHOLOGY_LIST[5]);
-        break;
-      case this.PATHOLOGY_LIST[6]:
-        this.answerDisplayOption = false;
-        this.displayScoreOption = false;
-        this.restartQuestionOption = false;
-        this.pictureQuizOption = true;
-        this.numberOfQuestionsMaxForPlayQuizOption = '5';
-        console.log(this.PATHOLOGY_LIST[6]);
         break;
       default: break;
     }

@@ -13,7 +13,8 @@ export class UserFormComponent implements OnInit {
 
   public userForm: FormGroup;
 
-  public PATHOLOGY_LIST: string[] = ['aucune', 'Alzheimer stade 1', 'Alzheimer stade 2', 'Alzheimer stade 3', 'Alzheimer stade 4', 'Alzheimer stade 5 et +', 'tumeur du cerveau'];
+  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
+
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.userForm = this.formBuilder.group({
@@ -62,10 +63,6 @@ export class UserFormComponent implements OnInit {
       case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
                                    userCreate.restartQuestionOption = true;
-                                   userCreate.pictureQuizOption = true;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
-                                   break;
-      case this.PATHOLOGY_LIST[6]: userCreate.displayScoreOption = false;
                                    userCreate.pictureQuizOption = true;
                                    userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
                                    break;
