@@ -15,7 +15,7 @@
     <ng-template #playBlock>
       <app-question-play [listIndexAnswerFalse]="listIndexAnswerFalse" [question]="quiz.questions[indexQuestion]" (indexAnswerChecked)="answerSelected($event)"></app-question-play>
 
-      <div *ngIf="indexAnswer==null; then uselessButton else usefullButton"></div>
+      <div *ngIf="indexAnswer==null; then uselessButton else usefulButton"></div>
       <ng-template #uselessButton>
         <div class="buttons">
           <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
@@ -23,7 +23,7 @@
         </div>
       </ng-template>
 
-      <ng-template #usefullButton>
+      <ng-template #usefulButton>
         <div class="buttons">
           <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
           <button type="submit" class="button-card-validate" (click)="validateQuestion()">Valider</button>

@@ -83,9 +83,12 @@ export class PlayQuizComponent implements OnInit {
         this.listIndexAnswerFalse.push(this.indexAnswer);
       }
     }
-
-    console.log('score : ' + this.score);
-    console.log('index de la question : ' + this.indexQuestion);
+    if (!this.user.answerDisplayOption) {
+      this.nextQuestion();
+    }else {
+      console.log('score : ' + this.score);
+      console.log('index de la question : ' + this.indexQuestion);
+    }
   }
 
   nextQuestion(): void {
