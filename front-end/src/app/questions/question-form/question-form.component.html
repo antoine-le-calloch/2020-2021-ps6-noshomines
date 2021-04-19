@@ -12,20 +12,22 @@
     <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form" [formGroupName]="i">
-          <label>
-            Réponse
-            <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
-            <ng-template #inputText>
-              <input type="text" [formControlName]="'value'" placeholder="Réponse">
-            </ng-template>
-            <ng-template #inputPicture>
-              <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image">
-            </ng-template>
-            <br>
-            Correcte
-            <input type="checkbox" [formControlName]="'isCorrect'">
-          </label>
+        <div *ngIf="i <= 3">
+          <div class="answer-form" [formGroupName]="i">
+            <label>
+              Réponse
+              <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
+              <ng-template #inputText>
+                <input type="text" [formControlName]="'value'" placeholder="Réponse">
+              </ng-template>
+              <ng-template #inputPicture>
+                <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image">
+              </ng-template>
+              <br>
+              Correcte
+              <input type="checkbox" [formControlName]="'isCorrect'">
+            </label>
+          </div>
         </div>
       </div>
     </div>
