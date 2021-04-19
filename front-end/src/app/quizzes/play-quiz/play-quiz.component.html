@@ -17,13 +17,18 @@
 
       <div *ngIf="indexAnswer==null; then uselessButton else usefullButton"></div>
       <ng-template #uselessButton>
-        <button type="submit" class="button-card-validate">Valider</button>
+        <div class="buttons">
+          <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
+          <button type="submit" class="button-card-validate">Valider</button>
+        </div>
       </ng-template>
 
       <ng-template #usefullButton>
-        <button type="submit" class="button-card-validate" (click)="validateQuestion()">Valider</button>
+        <div class="buttons">
+          <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
+          <button type="submit" class="button-card-validate" (click)="validateQuestion()">Valider</button>
+        </div>
       </ng-template>
-
     </ng-template>
 
     <ng-template #displayBlock>
@@ -32,10 +37,14 @@
       </div>
       <div *ngIf="indexQuestion==numberOfQuestions-1; then end else next"></div>
       <ng-template #end>
-        <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Finir le quiz</button>
+        <div class="buttons">
+          <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Finir le quiz</button>
+        </div>
       </ng-template>
       <ng-template #next>
-        <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Prochaine question</button>
+        <div class="buttons">
+          <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Prochaine question</button>
+        </div>
       </ng-template>
 
     </ng-template>
@@ -45,8 +54,10 @@
     <ng-template #noQuestionsBlock>
       <div class="end-quiz">
       <app-resume-display [displayScoreOption]="user.displayScoreOption" [quiz]="quiz" [score]="score" [numberOfQuestions]="numberOfQuestions"></app-resume-display>
-      <button type="submit" class="button-card-restart" (click)="restartQuiz()">Recommencez le quiz</button>
-      <button type="submit" class="button-card-other-quiz" routerLink="/quiz-list">Jouer à un autre quiz</button>
+        <div class="buttons">
+          <button type="submit" class="button-card-restart" (click)="restartQuiz()">Recommencez le quiz</button>
+          <button type="submit" class="button-card-other-quiz" routerLink="/quiz-list">Jouer à un autre quiz</button>
+        </div>
       </div>
     </ng-template>
 
