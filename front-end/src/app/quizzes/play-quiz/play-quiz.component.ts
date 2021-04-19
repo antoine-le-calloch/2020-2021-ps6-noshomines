@@ -96,6 +96,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   restartQuiz(): void {
+    this.shuffle(this.quiz);
     this.score = 0;
     this.indexQuestion = 0;
     this.listIndexAnswerFalse = [];
