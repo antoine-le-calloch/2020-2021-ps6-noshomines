@@ -44,7 +44,7 @@ export class UserFormComponent implements OnInit {
 
   setPathologyOption(userCreate: User): void {
     switch (userCreate.pathology){
-      case this.PATHOLOGY_LIST[0]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
+      case this.PATHOLOGY_LIST[0]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '30';
                                    break;
       case this.PATHOLOGY_LIST[1]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
                                    break;
@@ -53,11 +53,12 @@ export class UserFormComponent implements OnInit {
                                    break;
       case this.PATHOLOGY_LIST[3]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
+                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
                                    break;
       case this.PATHOLOGY_LIST[4]: userCreate.answerDisplayOption = true;
                                    userCreate.displayScoreOption = false;
-                                   userCreate.restartQuestionOption = true;
+                                   userCreate.restartQuestionOption = false;
+                                   userCreate.pictureQuizOption = true;
                                    userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
                                    break;
       case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;

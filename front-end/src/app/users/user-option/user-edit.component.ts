@@ -13,8 +13,8 @@ import {Router} from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   public user: User;
-  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
-  public LIMIT_QUESTION_PLAY_LIST: string[] = ['5', '10', '15', '20'];
+  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
+  public LIMIT_QUESTION_PLAY_LIST: string[] = ['5', '10', '15', '20', '25', '30'];
 
   public userForm: FormGroup;
   public firstName: string;
@@ -85,22 +85,23 @@ export class UserEditComponent implements OnInit {
     console.log('pictureQuizOption : ' + this.pictureQuizOption);
   }
 
-
   setPathologyOption(pathology: Event): void {
     console.log('test');
     this.pathology = (pathology.target as HTMLTextAreaElement).value;
+    console.log(this.pathology);
+    console.log(this.PATHOLOGY_LIST[4]);
     switch (this.pathology){
       case this.PATHOLOGY_LIST[0]:
         this.pictureQuizOption = false;
         this.answerDisplayOption = false;
         this.displayScoreOption = true;
         this.restartQuestionOption = false;
-        this.numberOfQuestionsMaxForPlayQuizOption = '20';
+        this.numberOfQuestionsMaxForPlayQuizOption = '30';
         this.userForm.patchValue({pictureQuizOption: false});
         this.userForm.patchValue({answerDisplayOption: false});
         this.userForm.patchValue({displayScoreOption: true});
         this.userForm.patchValue({restartQuestionOption: false});
-        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '20'});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '30'});
         console.log(this.PATHOLOGY_LIST[0]);
         break;
       case this.PATHOLOGY_LIST[1]:
@@ -134,21 +135,21 @@ export class UserEditComponent implements OnInit {
         this.displayScoreOption = false;
         this.restartQuestionOption = false;
         this.pictureQuizOption = false;
-        this.numberOfQuestionsMaxForPlayQuizOption = '10';
+        this.numberOfQuestionsMaxForPlayQuizOption = '15';
         this.userForm.patchValue({pictureQuizOption: false});
         this.userForm.patchValue({answerDisplayOption: true});
         this.userForm.patchValue({displayScoreOption: false});
         this.userForm.patchValue({restartQuestionOption: false});
-        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '10'});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '15'});
         console.log(this.PATHOLOGY_LIST[3]);
         break;
       case this.PATHOLOGY_LIST[4]:
         this.answerDisplayOption = true;
         this.displayScoreOption = false;
         this.restartQuestionOption = true;
-        this.pictureQuizOption = false;
+        this.pictureQuizOption = true;
         this.numberOfQuestionsMaxForPlayQuizOption = '10';
-        this.userForm.patchValue({pictureQuizOption: false});
+        this.userForm.patchValue({pictureQuizOption: true});
         this.userForm.patchValue({answerDisplayOption: true});
         this.userForm.patchValue({displayScoreOption: false});
         this.userForm.patchValue({restartQuestionOption: true});
@@ -168,7 +169,9 @@ export class UserEditComponent implements OnInit {
         this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '5'});
         console.log(this.PATHOLOGY_LIST[5]);
         break;
-      default: break;
+      default:
+        console.log('break');
+        break;
     }
   }
 }

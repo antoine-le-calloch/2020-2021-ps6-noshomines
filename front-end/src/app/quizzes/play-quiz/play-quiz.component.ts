@@ -64,7 +64,6 @@ export class PlayQuizComponent implements OnInit {
   }
 
   getIsCorrect(): boolean{
-    console.log('isGoodAnswerChecked : ' + this.quiz.questions[this.indexQuestion].answers[this.indexAnswer].isCorrect);
     return this.quiz.questions[this.indexQuestion].answers[this.indexAnswer].isCorrect;
   }
 
