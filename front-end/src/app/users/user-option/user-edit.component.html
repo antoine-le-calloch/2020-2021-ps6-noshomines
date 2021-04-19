@@ -2,7 +2,7 @@
 
 
 <div class="card">
-  <form class="user-form" [formGroup]="userForm">
+  <form *ngIf="user" class="user-form" [formGroup]="userForm">
     <h2>Editer le profil : </h2>
     <h3>{{firstName}} {{lastName}}</h3>
     <label for="comment"> commentaire :

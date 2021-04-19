@@ -28,50 +28,41 @@ export class UserEditComponent implements OnInit {
 
 
   constructor(private router: Router, public formBuilder: FormBuilder, public userService: UserService) {
+    this.userService.userSelected$.subscribe((user) => {
+      this.firstName = user.firstName;
+      this.lastName = user.lastName;
+      this.pathology = user.pathology;
+      this.restartQuestionOption = user.restartQuestionOption;
+      this.answerDisplayOption = user.answerDisplayOption;
+      this.displayScoreOption = user.displayScoreOption;
+      this.pictureQuizOption = user.pictureQuizOption;
+      this.numberOfQuestionsMaxForPlayQuizOption = user.numberOfQuestionsMaxForPlayQuizOption;
+      this.user = user;
+
+      this.userForm = this.formBuilder.group({
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        comment: user.comment,
+        pathology: user.pathology,
+        restartQuestionOption: user.restartQuestionOption,
+        answerDisplayOption: user.answerDisplayOption,
+        displayScoreOption: user.displayScoreOption,
+        pictureQuizOption: user.pictureQuizOption,
+        numberOfQuestionsMaxForPlayQuizOption: user.numberOfQuestionsMaxForPlayQuizOption,
+      });
+    });
   }
 
   ngOnInit(): void {
-    this.userService.userSelected$.subscribe((user) => {
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
-        this.pathology = user.pathology;
-        this.restartQuestionOption = user.restartQuestionOption;
-        this.answerDisplayOption = user.answerDisplayOption;
-        this.displayScoreOption = user.displayScoreOption;
-        this.pictureQuizOption = user.pictureQuizOption;
-        this.numberOfQuestionsMaxForPlayQuizOption = user.numberOfQuestionsMaxForPlayQuizOption;
-
-        this.userForm = this.formBuilder.group({
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          comment: user.comment,
-          pathology: user.pathology,
-          restartQuestionOption: user.restartQuestionOption,
-          answerDisplayOption: user.answerDisplayOption,
-          displayScoreOption: user.displayScoreOption,
-          pictureQuizOption: user.pictureQuizOption,
-          numberOfQuestionsMaxForPlayQuizOption: user.numberOfQuestionsMaxForPlayQuizOption,
-        });
-    });
-    this.initOptionForm();
   }
-
-  initOptionForm(): void {
-  }
-
 
   validate(): void {
     const userToModify: User = this.userForm.getRawValue() as User;
     this.userService.modifyUser(userToModify);
     console.log(this.userForm.value);
-    this.sleep(100);
     this.userService.setSelectedUser(userToModify.id);
     this.router.navigate(['/user-list']);
-  }
-
-  sleep(ms): Promise<unknown> {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   onSelectRestartQuestionOption(): void {
@@ -105,6 +96,11 @@ export class UserEditComponent implements OnInit {
         this.displayScoreOption = true;
         this.restartQuestionOption = false;
         this.numberOfQuestionsMaxForPlayQuizOption = '20';
+        this.userForm.patchValue({pictureQuizOption: false});
+        this.userForm.patchValue({answerDisplayOption: false});
+        this.userForm.patchValue({displayScoreOption: true});
+        this.userForm.patchValue({restartQuestionOption: false});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '20'});
         console.log(this.PATHOLOGY_LIST[0]);
         break;
       case this.PATHOLOGY_LIST[1]:
@@ -113,6 +109,11 @@ export class UserEditComponent implements OnInit {
         this.displayScoreOption = true;
         this.restartQuestionOption = false;
         this.numberOfQuestionsMaxForPlayQuizOption = '20';
+        this.userForm.patchValue({pictureQuizOption: false});
+        this.userForm.patchValue({answerDisplayOption: false});
+        this.userForm.patchValue({displayScoreOption: true});
+        this.userForm.patchValue({restartQuestionOption: false});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '20'});
         console.log(this.PATHOLOGY_LIST[1]);
         break;
       case this.PATHOLOGY_LIST[2]:
@@ -121,6 +122,11 @@ export class UserEditComponent implements OnInit {
         this.restartQuestionOption = false;
         this.pictureQuizOption = false;
         this.numberOfQuestionsMaxForPlayQuizOption = '15';
+        this.userForm.patchValue({pictureQuizOption: true});
+        this.userForm.patchValue({answerDisplayOption: true});
+        this.userForm.patchValue({displayScoreOption: false});
+        this.userForm.patchValue({restartQuestionOption: false});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '15'});
         console.log(this.PATHOLOGY_LIST[2]);
         break;
       case this.PATHOLOGY_LIST[3]:
@@ -129,6 +135,11 @@ export class UserEditComponent implements OnInit {
         this.restartQuestionOption = false;
         this.pictureQuizOption = false;
         this.numberOfQuestionsMaxForPlayQuizOption = '10';
+        this.userForm.patchValue({pictureQuizOption: true});
+        this.userForm.patchValue({answerDisplayOption: false});
+        this.userForm.patchValue({displayScoreOption: false});
+        this.userForm.patchValue({restartQuestionOption: false});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '10'});
         console.log(this.PATHOLOGY_LIST[3]);
         break;
       case this.PATHOLOGY_LIST[4]:
@@ -137,6 +148,11 @@ export class UserEditComponent implements OnInit {
         this.restartQuestionOption = true;
         this.pictureQuizOption = false;
         this.numberOfQuestionsMaxForPlayQuizOption = '10';
+        this.userForm.patchValue({pictureQuizOption: true});
+        this.userForm.patchValue({answerDisplayOption: false});
+        this.userForm.patchValue({displayScoreOption: true});
+        this.userForm.patchValue({restartQuestionOption: false});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '10'});
         console.log(this.PATHOLOGY_LIST[4]);
         break;
       case this.PATHOLOGY_LIST[5]:
@@ -145,11 +161,14 @@ export class UserEditComponent implements OnInit {
         this.restartQuestionOption = true;
         this.pictureQuizOption = true;
         this.numberOfQuestionsMaxForPlayQuizOption = '5';
+        this.userForm.patchValue({pictureQuizOption: true});
+        this.userForm.patchValue({answerDisplayOption: false});
+        this.userForm.patchValue({displayScoreOption: true});
+        this.userForm.patchValue({restartQuestionOption: true});
+        this.userForm.patchValue({numberOfQuestionsMaxForPlayQuizOption: '5'});
         console.log(this.PATHOLOGY_LIST[5]);
         break;
       default: break;
     }
   }
-
-
 }
