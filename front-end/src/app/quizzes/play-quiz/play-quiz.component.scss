@@ -24,14 +24,16 @@ app-resume-display{
 }
 
 .end-quiz{
-    text-align: center;
-    background: $app-background-color;
-    display: block;
-    margin-right: 5rem;
-    margin-left: 5rem;
-    position: relative;
-    box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
-    padding: 0 1em 1em 1em;
+  text-align: center;
+  background: $app-background-color;
+  display: block;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  position: relative;
+  left: 16%;
+  width: 50vw;
+  //box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
+  padding: 0 1em 1em 1em;
 }
 
 .rectangle{
@@ -112,7 +114,6 @@ app-quiz-list{
     outline: 0;
     box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
   }
-
 }
 
 
