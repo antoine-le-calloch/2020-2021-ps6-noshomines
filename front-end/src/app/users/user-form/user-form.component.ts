@@ -13,7 +13,7 @@ export class UserFormComponent implements OnInit {
 
   public userForm: FormGroup;
 
-  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
+  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: aucun trouble', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
 
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {

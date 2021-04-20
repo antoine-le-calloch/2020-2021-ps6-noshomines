@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   public user: User;
-  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: indiscernable avec une persone normale', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
+  public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: aucun trouble', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
   public LIMIT_QUESTION_PLAY_LIST: string[] = ['5', '10', '15', '20', '25', '30'];
 
   public userForm: FormGroup;
