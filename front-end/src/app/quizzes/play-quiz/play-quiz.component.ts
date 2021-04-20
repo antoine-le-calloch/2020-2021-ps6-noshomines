@@ -84,7 +84,12 @@ export class PlayQuizComponent implements OnInit {
       }
     }
     if (!this.user.answerDisplayOption) {
-      this.nextQuestion();
+      if (this.user.restartQuestionOption && this.getIsCorrect()){
+        this.nextQuestion();
+      }
+      else if (!this.user.restartQuestionOption){
+        this.nextQuestion();
+      }
     }else {
       console.log('score : ' + this.score);
       console.log('index de la question : ' + this.indexQuestion);
