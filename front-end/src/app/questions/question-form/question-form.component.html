@@ -10,7 +10,7 @@
       <label for="restartQuestionCheckbox">Réponse en image</label>
     </div>
 
-    <div *ngIf="answers.controls.length <= 3; then usefulButton else uselessButton"></div>
+    <div *ngIf="answers.controls.length >= 4; then uselessButton else usefulButton"></div>
     <ng-template #uselessButton>
       <div class="buttons">
         <button disabled class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
@@ -22,27 +22,40 @@
         <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
       </div>
     </ng-template>
-    
+
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i=index">
-          <div class="answer-form" [formGroupName]="i">
-            <label>
-              Réponse
-              <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
-              <ng-template #inputText>
-                <input type="text" [formControlName]="'value'" placeholder="Réponse">
-              </ng-template>
-              <ng-template #inputPicture>
-                <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image">
-              </ng-template>
-              <br>
-              Correcte
-              <input type="checkbox" [formControlName]="'isCorrect'">
-            </label>
-          </div>
+        <div class="answer-form" [formGroupName]="i">
+          <label>
+            Réponse
+            <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
+            <ng-template #inputText>
+              <input type="text" [formControlName]="'value'" placeholder="Réponse">
+            </ng-template>
+            <ng-template #inputPicture>
+              <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image">
+            </ng-template>
+            <br>
+            Correcte
+            <input type="checkbox" [formControlName]="'isCorrect'">
+          </label>
+        </div>
       </div>
     </div>
-    <button type="submit" class="submit-card" (click)="addQuestion()">Valider la question</button>
+
+
+    <div *ngIf="answers.controls.length == 0; then uselessButtonAddQuestion else usefulButtonAddQuestion"></div>
+    <ng-template #uselessButtonAddQuestion>
+      <div class="buttons">
+        <button disabled type="submit" class="submit-card" (click)="addQuestion()">Valider la question</button>
+      </div>
+    </ng-template>
+
+    <ng-template #usefulButtonAddQuestion>
+      <div class="buttons">
+        <button type="submit" class="submit-card" (click)="addQuestion()">Valider la question</button>
+      </div>
+    </ng-template>
   </form>
 </div>
 

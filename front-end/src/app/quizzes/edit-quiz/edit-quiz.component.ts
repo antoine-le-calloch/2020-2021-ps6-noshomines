@@ -13,11 +13,15 @@ export class EditQuizComponent implements OnInit {
 
   public quiz: Quiz;
   private quizForm: FormGroup;
+  private isOneQuestionQuiz: boolean;
+  private isOneQuestionImage: boolean;
 
   constructor(private router: Router, private route: ActivatedRoute, public formBuilder: FormBuilder, public quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => {
       this.quiz = quiz;
     });
+    this.isOneQuestionImage = false;
+    this.isOneQuestionQuiz = false;
   }
 
   ngOnInit(): void {
@@ -39,10 +43,23 @@ export class EditQuizComponent implements OnInit {
     this.intializeQuiz();
 
     this.quiz.questions.forEach(item => {
-      if (!item.isPictureAnswer){
-        this.quizForm.patchValue({isPictureQuiz: false});
+      if (item.isPictureAnswer){
+        this.isOneQuestionImage = true;
+      }
+      else {
+        this.isOneQuestionQuiz = true;
       }
     });
+
+    if (this.isOneQuestionQuiz && this.isOneQuestionImage){
+      this.quizForm.patchValue({isPictureQuiz: 'mixte'});
+    }
+    else if (this.isOneQuestionImage){
+      this.quizForm.patchValue({isPictureQuiz: 'image'});
+    }
+    else {
+      this.quizForm.patchValue({isPictureQuiz: 'text'});
+    }
 
     const quizToModify: Quiz = this.quizForm.getRawValue() as Quiz;
     console.log(this.quizForm.value);

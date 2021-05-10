@@ -32,10 +32,11 @@ export class PlayQuizComponent implements OnInit {
       this.user = user;
     });
     this.quizService.quizSelected$.subscribe((quiz) => {
-      this.quiz = this.shuffle(quiz);
-      if (quiz && this.user ){
-        if ( parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10) > quiz.questions.length){
-          this.numberOfQuestions = quiz.questions.length;
+      this.quiz = this.copieQuiz(quiz);
+      this.quiz = this.shuffle(this.quiz);
+      if (this.quiz && this.user ){
+        if ( parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10) > this.quiz.questions.length){
+          this.numberOfQuestions = this.quiz.questions.length;
         }
         else{
           this.numberOfQuestions = parseInt(this.user.numberOfQuestionsMaxForPlayQuizOption, 10);
@@ -109,6 +110,28 @@ export class PlayQuizComponent implements OnInit {
     this.indexQuestion = 0;
     this.listIndexAnswerFalse = [];
   }
+
+  copieQuiz(quiz: Quiz): Quiz {
+    const copy = JSON.parse(JSON.stringify(quiz));
+    console.log(quiz.isPictureQuiz);
+    console.log(this.user.answerDisplayOption);
+
+    if (this.user.pictureQuizOption && quiz.isPictureQuiz === 'mixte'){
+      console.log('ça rentre');
+      copy.questions = [];
+      console.log(quiz);
+      console.log(copy);
+      // tslint:disable-next-line:prefer-for-of
+      for ( let k = 0; k < quiz.questions.length; k++){
+        if (quiz.questions[k].isPictureAnswer){
+          copy.questions.push(quiz.questions[k]);
+        }
+      }
+    }
+
+    return copy;
+  }
+
   shuffle(quiz: Quiz): Quiz {
     let j = 0;
     let temp = quiz.questions[0];
@@ -121,6 +144,4 @@ export class PlayQuizComponent implements OnInit {
     }
     return quiz;
   }
-
 }
-

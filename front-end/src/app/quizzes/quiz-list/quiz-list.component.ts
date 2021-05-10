@@ -24,7 +24,6 @@ export class QuizListComponent implements OnInit {
       this.quizList = quizzes;
       console.log(quizzes.length);
     });
-
   }
 
   ngOnInit(): void {
@@ -33,5 +32,4 @@ export class QuizListComponent implements OnInit {
   quizSelected(quiz: Quiz): void {
     this.router.navigate(['/play-quiz/' + quiz.id]);
   }
-
 }
