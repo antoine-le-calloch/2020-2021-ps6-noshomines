@@ -10,18 +10,7 @@
       <label for="restartQuestionCheckbox">Réponse en image</label>
     </div>
 
-    <div *ngIf="answers.controls.length >= 4; then uselessButton else usefulButton"></div>
-    <ng-template #uselessButton>
-      <div class="buttons">
-        <button disabled class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
-      </div>
-    </ng-template>
 
-    <ng-template #usefulButton>
-      <div class="buttons">
-        <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
-      </div>
-    </ng-template>
 
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls; let i=index">
@@ -37,17 +26,29 @@
             </ng-template>
             <br>
             Correcte
-            <input type="checkbox" [formControlName]="'isCorrect'">
+            <input type="checkbox" [formControlName]="'isCorrect'" (click)="countGoodAnswer(i)">
           </label>
         </div>
       </div>
     </div>
 
+    <div *ngIf="answers.controls.length >= 4; then uselessButton else usefulButton"></div>
+    <ng-template #uselessButton>
+      <div class="buttons">
+        <button disabled class="useless-card" (click)="addAnswer()">Ajouter une réponse</button>
+      </div>
+    </ng-template>
 
-    <div *ngIf="answers.controls.length == 0; then uselessButtonAddQuestion else usefulButtonAddQuestion"></div>
+    <ng-template #usefulButton>
+      <div class="buttons">
+        <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+      </div>
+    </ng-template>
+
+    <div *ngIf="numberGoodAnswer != 1 || notValidValues || notValidLabel; then uselessButtonAddQuestion else usefulButtonAddQuestion"></div>
     <ng-template #uselessButtonAddQuestion>
       <div class="buttons">
-        <button disabled type="submit" class="submit-card" (click)="addQuestion()">Valider la question</button>
+        <button disabled type="submit" class="useless-card" (click)="addQuestion()">Valider la question</button>
       </div>
     </ng-template>
 

@@ -16,14 +16,34 @@ export class QuestionFormComponent implements OnInit {
 
   public questionForm: FormGroup;
   public isPictureAnswer: boolean;
+  public numberGoodAnswer: number;
+  public notValidLabel: boolean;
+  public notValidValues: boolean;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
     // Form creation
     this.initializeQuestionForm();
+
+    console.log(this.questionForm);
+
+    this.questionForm.get('label').valueChanges.subscribe(value => {
+      this.notValidLabel = value === null || value === '';
+    });
+
+    this.questionForm.get('answers').valueChanges.subscribe(value => {
+      console.log(value);
+      for (let i = 0; i < value.length; i++) {
+        console.log(value[i].value);
+        this.notValidValues = value[i].value === null || value[i].value === '';
+      }
+    });
   }
 
   private initializeQuestionForm(): void {
     this.isPictureAnswer = false;
+    this.notValidLabel = true;
+    this.notValidValues = true;
+    this.numberGoodAnswer = 0;
 
     this.questionForm = this.formBuilder.group({
       label: ['', Validators.required],
@@ -51,12 +71,15 @@ export class QuestionFormComponent implements OnInit {
   }
 
   addQuestion(): void {
+
     if (this.questionForm.valid) {
       const question = this.questionForm.getRawValue() as Question;
       console.log(question.answers.length);
+
       this.quizService.addQuestion(this.quiz, question);
       console.log(this.questionForm.value);
       this.initializeQuestionForm();
+
     }
   }
 
@@ -64,4 +87,20 @@ export class QuestionFormComponent implements OnInit {
     this.isPictureAnswer = !this.isPictureAnswer;
     console.log('isPictureAnswer : ' + this.isPictureAnswer);
   }
+
+  countGoodAnswer(j: number): void {
+
+    setTimeout(() => {
+      const question = this.questionForm.getRawValue() as Question;
+      if (j !== -1) {
+        this.numberGoodAnswer = 0;
+        question.answers.forEach(item => {
+          if (item.isCorrect) {
+            this.numberGoodAnswer += 1;
+          }
+        });
+      }
+    });
+  }
+
 }

@@ -3,12 +3,12 @@
 <div class="card">
   <h2>Créer un nouveau quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
-    <label for="name">Titre <br>
+    <label for="name">
       <input class="input-custom" type="text" id="name" [formControlName]="'name'" placeholder="Titre">
     </label>
     <br>
-    <label for="theme">Thème <br>
-      <input class="input-custom" type="text" id="theme" [formControlName]="'theme'" placeholder="Theme">
+    <label for="thème">
+      <input class="input-custom" type="text" id="thème" [formControlName]="'theme'" placeholder="Theme">
     </label>
     <div class="buttons">
       <button type="submit" class="cancel-card"  routerLink="/gestion-quiz"> Annuler </button>
