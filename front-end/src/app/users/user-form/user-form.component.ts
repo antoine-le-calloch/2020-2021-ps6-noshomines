@@ -17,11 +17,13 @@ export class UserFormComponent implements OnInit {
   public notValidName: boolean;
   public notValidFirstName: boolean;
   public notValidPathology: boolean;
+  public notValidComment: boolean;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.notValidName = true;
     this.notValidFirstName = true;
     this.notValidPathology = true;
+    this.notValidComment = true;
 
     this.userForm = this.formBuilder.group({
       firstName: [''],
@@ -44,6 +46,10 @@ export class UserFormComponent implements OnInit {
       this.notValidFirstName = value === null || value === '';
     });
 
+    this.userForm.get('comment').valueChanges.subscribe(value => {
+      this.notValidComment = value === null || value === '';
+    });
+
     this.userForm.get('pathology').valueChanges.subscribe(value => {
       this.notValidPathology = value === null || value === '';
     });
@@ -63,24 +69,30 @@ export class UserFormComponent implements OnInit {
 
   setPathologyOption(userCreate: User): void {
     switch (userCreate.pathology){
-      case this.PATHOLOGY_LIST[0]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '30';
+      case this.PATHOLOGY_LIST[0]:
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '30';
         break;
-      case this.PATHOLOGY_LIST[1]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
+      case this.PATHOLOGY_LIST[1]:
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
         break;
-      case this.PATHOLOGY_LIST[2]: userCreate.answerDisplayOption = true;
+      case this.PATHOLOGY_LIST[2]:
+        userCreate.answerDisplayOption = true;
         userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
         break;
-      case this.PATHOLOGY_LIST[3]: userCreate.answerDisplayOption = true;
+      case this.PATHOLOGY_LIST[3]:
+        userCreate.answerDisplayOption = true;
         userCreate.displayScoreOption = false;
         userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
         break;
-      case this.PATHOLOGY_LIST[4]: userCreate.answerDisplayOption = true;
+      case this.PATHOLOGY_LIST[4]:
+        userCreate.answerDisplayOption = true;
         userCreate.displayScoreOption = false;
         userCreate.restartQuestionOption = false;
         userCreate.pictureQuizOption = true;
         userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
         break;
-      case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;
+      case this.PATHOLOGY_LIST[5]:
+        userCreate.answerDisplayOption = true;
         userCreate.displayScoreOption = false;
         userCreate.restartQuestionOption = true;
         userCreate.pictureQuizOption = true;

@@ -28,7 +28,7 @@
     </div>
     <br>
 
-    <div *ngIf="notValidName || notValidFirstName || notValidPathology; then uselessButtonAddUser else usefulButtonAddUser"></div>
+    <div *ngIf="notValidName || notValidFirstName || notValidPathology || notValidComment; then uselessButtonAddUser else usefulButtonAddUser"></div>
     <ng-template #uselessButtonAddUser>
       <div class="buttons">
         <button class="cancel-card" routerLink="/user-list">Annuler</button>
