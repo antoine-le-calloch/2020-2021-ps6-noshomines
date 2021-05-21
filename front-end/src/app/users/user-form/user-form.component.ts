@@ -14,9 +14,15 @@ export class UserFormComponent implements OnInit {
   public userForm: FormGroup;
 
   public PATHOLOGY_LIST: string[] = ['aucune pathologie', 'Alzheimer stade 1: aucun trouble', 'Alzheimer stade 2 : déficit cognitif très léger', 'Alzheimer stade 3 : déficit cognitif léger', 'Alzheimer stade 4 : déficit cognitif modéré ', 'Alzheimer stade 5 et + : déficit cognitif sévère'];
-
+  public notValidName: boolean;
+  public notValidFirstName: boolean;
+  public notValidPathology: boolean;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
+    this.notValidName = true;
+    this.notValidFirstName = true;
+    this.notValidPathology = true;
+
     this.userForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
@@ -27,6 +33,19 @@ export class UserFormComponent implements OnInit {
       answerDisplayOption: false,
       pictureQuizOption: false,
       numberOfQuestionsMaxForPlayQuizOption: '0',
+    });
+
+
+    this.userForm.get('lastName').valueChanges.subscribe(value => {
+      this.notValidName = value === null || value === '';
+    });
+
+    this.userForm.get('firstName').valueChanges.subscribe(value => {
+      this.notValidFirstName = value === null || value === '';
+    });
+
+    this.userForm.get('pathology').valueChanges.subscribe(value => {
+      this.notValidPathology = value === null || value === '';
     });
   }
 
@@ -45,28 +64,28 @@ export class UserFormComponent implements OnInit {
   setPathologyOption(userCreate: User): void {
     switch (userCreate.pathology){
       case this.PATHOLOGY_LIST[0]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '30';
-                                   break;
+        break;
       case this.PATHOLOGY_LIST[1]: userCreate.numberOfQuestionsMaxForPlayQuizOption = '20';
-                                   break;
+        break;
       case this.PATHOLOGY_LIST[2]: userCreate.answerDisplayOption = true;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
-                                   break;
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
+        break;
       case this.PATHOLOGY_LIST[3]: userCreate.answerDisplayOption = true;
-                                   userCreate.displayScoreOption = false;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
-                                   break;
+        userCreate.displayScoreOption = false;
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '15';
+        break;
       case this.PATHOLOGY_LIST[4]: userCreate.answerDisplayOption = true;
-                                   userCreate.displayScoreOption = false;
-                                   userCreate.restartQuestionOption = false;
-                                   userCreate.pictureQuizOption = true;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
-                                   break;
+        userCreate.displayScoreOption = false;
+        userCreate.restartQuestionOption = false;
+        userCreate.pictureQuizOption = true;
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '10';
+        break;
       case this.PATHOLOGY_LIST[5]: userCreate.answerDisplayOption = true;
-                                   userCreate.displayScoreOption = false;
-                                   userCreate.restartQuestionOption = true;
-                                   userCreate.pictureQuizOption = true;
-                                   userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
-                                   break;
+        userCreate.displayScoreOption = false;
+        userCreate.restartQuestionOption = true;
+        userCreate.pictureQuizOption = true;
+        userCreate.numberOfQuestionsMaxForPlayQuizOption = '5';
+        break;
       default: break;
     }
   }

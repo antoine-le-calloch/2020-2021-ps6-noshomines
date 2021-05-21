@@ -16,7 +16,8 @@ export class QuizFormComponent implements OnInit, OnDestroy {
   // Note: We are using here ReactiveForms to create our form. Be careful when you look for some documentation to
   // avoid TemplateDrivenForm (another type of form)
 
-
+  public notValidName: boolean;
+  public notValidTheme: boolean;
 
   /**
    * QuizForm: Object which manages the form in our component.
@@ -25,14 +26,22 @@ export class QuizFormComponent implements OnInit, OnDestroy {
   public quizForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+    this.notValidName = true;
+    this.notValidTheme = true;
+
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: [''],
       isPictureQuiz: 'text',
     });
-    // You can also add validators to your inputs such as required, maxlength or even create your own validator!
-    // More information: https://angular.io/guide/reactive-forms#simple-form-validation
-    // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
+
+    this.quizForm.get('name').valueChanges.subscribe(value => {
+      this.notValidName = value === null || value === '';
+    });
+
+    this.quizForm.get('theme').valueChanges.subscribe(value => {
+      this.notValidTheme = value === null || value === '';
+    });
   }
 
   ngOnInit(): void {
