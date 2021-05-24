@@ -34,7 +34,11 @@ export class QuestionFormComponent implements OnInit {
       console.log(value);
       for (let i = 0; i < value.length; i++) {
         console.log(value[i].value);
-        this.notValidValues = value[i].value === null || value[i].value === '';
+        if (value[i].value === null || value[i].value === ''){
+          this.notValidValues = true;
+          break;
+        }
+        this.notValidValues = false;
       }
     });
   }
